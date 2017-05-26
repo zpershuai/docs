@@ -676,7 +676,6 @@
 <li>Rokid.handler(event,contxt,callback)&#xFF1A;&#x7528;&#x4E8E;&#x8C03;&#x7528;Rokid-sdk&#x3002;</li>
 <li>Rokid.sync_requret(method,url,options)&#xFF1A;&#x540C;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x628A;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x901A;&#x8FC7;Rokid.resHandler( )&#x8FDB;&#x884C;buffer&#x5904;&#x7406;&#x3002;</li>
 <li>Rokid.resHandler(content):buffer&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x7ECF;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x6B64;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x518D;&#x63D0;&#x4EA4;&quot;:tts&quot;&#x3002;</li>
-<li>Rokid.request(options,callback):&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x3002;</li>
 <li>Rokid.param:NLP&#x5904;&#x7406;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x5728;&#x5176;&#x4E2D;&#x83B7;&#x53D6;intent&#xFF0C;slot&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
 </ul>
 <h3 id="sample">Sample</h3>
@@ -767,7 +766,7 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.4","depth":1,"next":{"title":"Rokid语音交互指南","level":"4.5","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.3","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-05-26T10:45:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-26T10:46:45.778Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.4","depth":1,"next":{"title":"Rokid语音交互指南","level":"4.5","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.3","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-05-26T11:23:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-26T11:52:22.143Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -775,10 +774,6 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
