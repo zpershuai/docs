@@ -60,6 +60,8 @@
     <link rel="next" href="rokid-regular-expression.html" />
     
     
+    <link rel="prev" href="skill-sample-coffee.html" />
+    
 
     </head>
     <body>
@@ -160,9 +162,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" >
+        <li class="chapter " data-level="4.1" data-path="skill-sample-coffee.html">
             
-                <a target="_blank" href="https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-java-tastecoffee">
+                <a href="skill-sample-coffee.html">
             
                     
                     开始创建第一个技能：我要喝咖啡
@@ -212,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" >
+        <li class="chapter " data-level="4.5" data-path="skill-sample.html">
             
-                <a target="_blank" href="https://github.com/Rokid/rokid-skill-sample">
+                <a href="skill-sample.html">
             
                     
                     Rokid示例技能
@@ -258,19 +260,6 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" >
-            
-                <a target="_blank" href="https://github.com/Rokid/rokid-blacksiren/blob/master/doc/siren%20api.md">
-            
-                    
-                    Rokid 前端降噪模块 API文档
-            
-                </a>
-            
-
-            
-        </li>
-    
 
     
         
@@ -291,7 +280,20 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../../3-ApiReference/rokid-client-sdk-doc.html">
+        <li class="chapter " data-level="6.2" data-path="../../3-ApiReference/openvoice-api.html">
+            
+                <a href="../../3-ApiReference/openvoice-api.html">
+            
+                    
+                    Rokid 接口文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../3-ApiReference/rokid-client-sdk-doc.html">
             
                 <a href="../../3-ApiReference/rokid-client-sdk-doc.html">
             
@@ -304,12 +306,12 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" >
+        <li class="chapter " data-level="6.4" data-path="../../3-ApiReference/siren-api.html">
             
-                <a target="_blank" href="https://github.com/Rokid/rokid-openvoice/blob/master/README.md">
+                <a href="../../3-ApiReference/siren-api.html">
             
                     
-                    Rokid 接口文档
+                    Rokid 前端降噪模块 API文档
             
                 </a>
             
@@ -454,57 +456,104 @@
 <h2 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h2>
 <ul>
 <li><a href="#&#x7406;&#x89E3;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x7684;&#x903B;&#x8F91;">&#x7406;&#x89E3;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x7684;&#x903B;&#x8F91;</a></li>
-<li><a href="#&#x610F;&#x56FE;&#x5B9A;&#x4E49;intent">&#x610F;&#x56FE;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#xFF08;intent&#xFF09;">&#x610F;&#x56FE;&#x5B9A;&#x4E49;</a></li>
 <li><a href="#&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;">&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;</a></li>
 <li><a href="#session&#x7528;&#x6CD5;&#x6307;&#x5357;">Session&#x7528;&#x6CD5;&#x6307;&#x5357;</a></li>
 <li><a href="#&#x5176;&#x4ED6;&#x53C2;&#x8003;">&#x5176;&#x4ED6;&#x53C2;&#x8003;</a></li>
 </ul>
 <h2 id="&#x7406;&#x89E3;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x7684;&#x903B;&#x8F91;">&#x7406;&#x89E3;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x7684;&#x903B;&#x8F91;</h2>
 <p>&#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x6280;&#x80FD;&#x5B9A;&#x4E49;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5C06;<code>&#x7528;&#x6237;&#x8BED;&#x53E5;</code> <code>&#x8BCD;&#x8868;</code>&#x7B49;<strong>&#x7528;&#x6237;&#x8F93;&#x5165;</strong>&#x548C;&#x60A8;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x80FD;&#x591F;&#x5904;&#x7406;&#x7684;<code>&#x610F;&#x56FE;</code>&#x8FDB;&#x884C;&#x6620;&#x5C04;&#x5173;&#x8054;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
-<p>&#x8981;&#x5904;&#x7406;&#x597D;&#x8FD9;&#x4E2A;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5F04;&#x6E05;&#x695A;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x6982;&#x5FF5;&#xFF1A;</p>
+<p>&#x8981;&#x5904;&#x7406;&#x597D;&#x8FD9;&#x4E2A;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5F04;&#x6E05;&#x695A;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x4E3B;&#x8981;&#x6982;&#x5FF5;&#xFF1A;</p>
 <ol>
 <li><strong>&#x610F;&#x56FE;&#x5B9A;&#x4E49;</strong>&#xFF1A;&#x4E00;&#x4E2A;&#x80FD;&#x591F;&#x58F0;&#x660E;&#x60A8;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7684;&#x610F;&#x56FE;&#x5408;&#x96C6;&#x7684;JSON&#x7ED3;&#x6784;&#x3002;</li>
-<li><p><strong>&#x7528;&#x6237;&#x8F93;&#x5165;</strong>&#xFF1A;</p>
-<ul>
-<li>&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF1A;&#x5E26;&#x7ED3;&#x6784;&#x7684;&#x6587;&#x672C;&#x57DF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x7684;&#x4EA4;&#x4E92;&#x8BED;&#x53E5;&#x548C;&#x60A8;&#x7684;&#x610F;&#x56FE;&#x5173;&#x8054;&#x8D77;&#x6765;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x610F;&#x56FE;&#x9884;&#x7F6E;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x3002;</li>
-<li>&#x8BCD;&#x8868;&#xFF1A;&#x4E00;&#x4E2A;&#x8BCD;&#x6761;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BCD;&#x6761;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x4F1A;&#x88AB;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x6216;&#x8005;&#x610F;&#x56FE;&#x6240;&#x5F15;&#x7528;&#x3002;&#x6BD4;&#x5982;&#x60A8;&#x53EF;&#x4EE5;&#x628A;&#x6240;&#x6709;&#x7684;&#x57CE;&#x5E02;&#x4F5C;&#x4E3A;&#x503C;&#x653E;&#x5728;&#x300C;&#x57CE;&#x5E02;&#x300D;&#x8BCD;&#x6761;&#x4E2D;&#xFF0C;&#x7ED9;&#x300C;&#x676D;&#x5DDE;&#x4ECA;&#x5929;&#x5929;&#x6C14;&#x600E;&#x4E48;&#x6837;&#x300D;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5F15;&#x7528;&#x3002;</li>
+<li><strong>&#x7528;&#x6237;&#x8F93;&#x5165;&#x6570;&#x636E;</strong>&#xFF1A;<ul>
+<li><strong>&#x7528;&#x6237;&#x8BED;&#x53E5;</strong>&#xFF1A;&#x610F;&#x56FE;&#x4E2D;&#x8868;&#x8FBE;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x90E8;&#x5206;&#x3002;&#x53EF;&#x4EE5;&#x5C06;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x7684;&#x4EA4;&#x4E92;&#x8BED;&#x53E5;&#x548C;&#x60A8;&#x7684;&#x610F;&#x56FE;&#x5173;&#x8054;&#x8D77;&#x6765;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x610F;&#x56FE;&#x9884;&#x7F6E;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x3002;</li>
+<li><strong>&#x8BCD;&#x8868;</strong>&#xFF1A;&#x4E00;&#x4E2A;&#x8BCD;&#x6761;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BCD;&#x6761;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x4F1A;&#x88AB;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x6216;&#x8005;&#x610F;&#x56FE;&#x6240;&#x5F15;&#x7528;&#x3002;&#x6BD4;&#x5982;&#x60A8;&#x53EF;&#x4EE5;&#x628A;&#x6240;&#x6709;&#x7684;&#x57CE;&#x5E02;&#x4F5C;&#x4E3A;&#x503C;&#x653E;&#x5728;&#x300C;&#x57CE;&#x5E02;&#x300D;&#x8BCD;&#x6761;&#x4E2D;&#xFF0C;&#x7ED9;&#x300C;&#x676D;&#x5DDE;&#x4ECA;&#x5929;&#x5929;&#x6C14;&#x600E;&#x4E48;&#x6837;&#x300D;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5F15;&#x7528;&#x3002;</li>
 </ul>
 </li>
 </ol>
-<p>&#x60A8;&#x5C06;&#x4F1A;&#x5728;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0; &gt; &#x5F00;&#x53D1;&#x540E;&#x53F0; &gt; &#x6280;&#x80FD;&#x5DE5;&#x5177;&#x4E2D;&#x67D0;&#x4E00;&#x4E2A;&#x6280;&#x80FD;&#x7684;<strong>&#x8BED;&#x97F3;&#x4EA4;&#x4E92;</strong>&#x9875;&#x9762;&#x7F16;&#x8F91;&#x4E0A;&#x8FF0;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x60A8;&#x5C06;&#x4F1A;&#x5728;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A; &gt; &#x5F00;&#x53D1;&#x540E;&#x53F0; &gt; &#x6280;&#x80FD;&#x5DE5;&#x5177;&#x4E2D;&#x67D0;&#x4E00;&#x4E2A;&#x6280;&#x80FD;&#x7684;<strong>&#x8BED;&#x97F3;&#x4EA4;&#x4E92;</strong>&#x9875;&#x9762;&#x7F16;&#x8F91;&#x4E0A;&#x8FF0;&#x4FE1;&#x606F;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x5C06;&#x4F1A;&#x4E3A;&#x60A8;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x7684;&#x5B9A;&#x4E49;&#x3002;</p>
 <h2 id="&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#xFF08;intent&#xFF09;">&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#xFF08;intent&#xFF09;</h2>
-<p>&#x5728;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x4E2D;&#xFF0C;&#x610F;&#x56FE;&#x7528;&#x6765;&#x8868;&#x793A;&#x7528;&#x6237;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x8BED;&#x97F3;&#x8BF7;&#x6C42;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x610F;&#x56FE;&#x90FD;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x4F9D;&#x8D56;&#x7684;&#x8BCD;&#x8868;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9700;&#x8981;&#x5728;&#x8BED;&#x4E49;&#x89E3;&#x6790;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x8F93;&#x51FA;&#x7ED9;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x6BD4;&#x5982;&#x5728;&#x300C;<a href="https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-java-tastecoffee" target="_blank">&#x6211;&#x8981;&#x559D;&#x5496;&#x5561;</a>&#x300D;&#x8FD9;&#x4E2A;&#x6280;&#x80FD;&#x7684;&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8BE2;&#x95EE;&#x5496;&#x5561;&#x9986;&#x7684;&#x610F;&#x56FE;<code>bestcoffeebar</code>&#xFF0C;&#x5B83;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x8BCD;&#x8868;<code>city</code>&#x6765;&#x786E;&#x5B9A;&#x641C;&#x7D22;&#x8303;&#x56F4;&#x3002;&#x5F53;&#x7528;&#x6237;&#x8BF4;&#xFF1A;&#x201C;&#x82E5;&#x742A;&#xFF0C;&#x6253;&#x5F00;&#x6211;&#x8981;&#x559D;&#x5496;&#x5561;&#x95EE;&#x95EE;&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x6709;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#x3002;&#x201D;&#x65F6;&#xFF0C;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x5C06;&#x628A;<code>bestcoffeebar</code>&#x7684;intent&#x8BF7;&#x6C42;&#x53D1;&#x7ED9;&#x60A8;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x5C06;&#x5E26;&#x4E0A;&#x8BCD;&#x8868;&#x540D;&#x79F0;<code>city</code>&#x4E2D;&#x7684;&#x201C;&#x676D;&#x5DDE;&#x201D;&#x8FD9;&#x4E2A;&#x503C;&#x3002;<strong>&#x5982;&#x679C;&#x6B64;&#x65F6;&#x672A;&#x5B9A;&#x4E49;<code>city</code>&#x8FD9;&#x4E2A;&#x8BCD;&#x8868;&#x4F9D;&#x8D56;&#xFF0C;&#x201C;&#x676D;&#x5DDE;&#x201D;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x8F93;&#x51FA;&#x7ED9;&#x60A8;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x3002;</strong></p>
+<p>&#x5728;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x4E2D;&#xFF0C;&#x610F;&#x56FE;&#x7528;&#x6765;&#x8868;&#x793A;&#x7528;&#x6237;&#x7684;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x8BED;&#x97F3;&#x8BF7;&#x6C42;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x610F;&#x56FE;&#x90FD;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x81EA;&#x5DF1;&#x4F9D;&#x8D56;&#x7684;&#x8BCD;&#x8868;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9700;&#x8981;&#x5728;&#x8BED;&#x4E49;&#x89E3;&#x6790;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x8F93;&#x51FA;&#x7ED9;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x6BD4;&#x5982;&#x5728;&#x300C;<a href="https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-java-tastecoffee" target="_blank">&#x6211;&#x8981;&#x559D;&#x5496;&#x5561;</a>&#x300D;&#x8FD9;&#x4E2A;&#x6280;&#x80FD;&#x7684;&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8BE2;&#x95EE;&#x5496;&#x5561;&#x9986;&#x7684;&#x610F;&#x56FE;<code>bestcoffeebar</code>&#xFF0C;&#x5B83;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;&#x8BCD;&#x8868;<code>city</code>&#x6765;&#x786E;&#x5B9A;&#x641C;&#x7D22;&#x8303;&#x56F4;&#x3002;&#x5F53;&#x7528;&#x6237;&#x8BF4;&#xFF1A;&#x201C;&#x82E5;&#x742A;&#xFF0C;&#x6253;&#x5F00;&#x6211;&#x8981;&#x559D;&#x5496;&#x5561;&#x95EE;&#x95EE;&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x6709;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#x3002;&#x201D;&#x65F6;&#xFF0C;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x5C06;&#x628A;<code>bestcoffeebar</code>&#x7684;intent&#x8BF7;&#x6C42;&#x53D1;&#x7ED9;&#x60A8;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x5C06;&#x5E26;&#x4E0A;&#x8BCD;&#x8868;&#x540D;&#x79F0;<code>city</code>&#x4E2D;&#x7684;&#x201C;&#x676D;&#x5DDE;&#x201D;&#x8FD9;&#x4E2A;&#x503C;&#x3002;<strong>&#x5982;&#x679C;&#x6B64;&#x65F6;&#x672A;&#x5B9A;&#x4E49;<code>city</code>&#x8FD9;&#x4E2A;&#x8BCD;&#x8868;&#x4F9D;&#x8D56;&#xFF0C;&#x201C;&#x676D;&#x5DDE;&#x201D;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x8F93;&#x51FA;&#x7ED9;&#x60A8;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x3002;</strong></p>
 <p>&#x60A8;&#x5C06;&#x5728;&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#x6846;&#x4E2D;&#x7528;JSON&#x683C;&#x5F0F;&#x5B9A;&#x4E49;&#x4E00;&#x5957;&#x6709;&#x6548;&#x7684;&#x610F;&#x56FE;&#x3002;&#x6BD4;&#x5982;&#x5982;&#x4E0B;&#x6848;&#x4F8B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x610F;&#x56FE;&#xFF1A;<code>bestcoffeebar</code>&#x548C;<code>nicedrink</code>&#xFF1A;</p>
 <pre><code class="lang-json">{
-  <span class="hljs-string">&quot;intents&quot;</span>: [
-    {
-      <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;bestcoffeebar&quot;</span>,
-      <span class="hljs-string">&quot;slots&quot;</span>: [
+ <span class="hljs-string">&quot;intents&quot;</span>: [
+  {
+   <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;bestcoffeebar&quot;</span>,
+   <span class="hljs-string">&quot;slots&quot;</span>: [
         {
-          <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;city&quot;</span>,
-          <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIST_OF_CITIES&quot;</span>
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;city&quot;</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIST_OF_CITIES&quot;</span>
         }
-      ]
-    },
+   ],
+    <span class="hljs-string">&quot;user_says&quot;</span>:[
+        <span class="hljs-string">&quot;...&quot;</span>
+        ]
+  }
     {
-      <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;nicedrink&quot;</span>
+    <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;nicedrink&quot;</span>
     }
-  ]
+ ]
 }
 </code></pre>
-<p>&#x6BCF;&#x4E2A;&#x610F;&#x56FE;&#x90FD;&#x62E5;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
+<p>&#x6BCF;&#x4E2A;&#x610F;&#x56FE;&#x90FD;&#x62E5;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
 <ul>
 <li><code>intent</code>&#x53C2;&#x6570;&#x8868;&#x793A;&#x610F;&#x56FE;&#x540D;&#x79F0;&#x3002;</li>
 <li><code>slots</code>&#x53C2;&#x6570;&#x8868;&#x793A;&#x4E0E;&#x4E0A;&#x8FF0;&#x610F;&#x56FE;&#x4F9D;&#x8D56;&#x7684;&#x8BCD;&#x8868;&#x540D;&#x79F0;&#x548C;&#x5185;&#x5BB9;&#x3002;</li>
+<li><code>user_says</code>&#x53C2;&#x6570;&#x8868;&#x793A;&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF0C;&#x5C06;&#x4F1A;&#x5728;&#x4E0B;&#x65B9;<a href="#&#x7528;&#x6237;&#x8BED;&#x53E5;user_says">&#x7528;&#x6237;&#x8BED;&#x53E5;</a>&#x90E8;&#x5206;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</li>
 </ul>
 <p>&#x5728;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x610F;&#x56FE;<code>bestcoffeebar</code>&#x4F9D;&#x8D56;&#x7684;&#x8BCD;&#x8868;&#x662F;<code>city</code>&#x3002;</p>
-<p>&#x8BCD;&#x8868;&#x901A;&#x8FC7;&#x8BCD;&#x8868;&#x540D;&#x79F0;<code>name</code>&#x548C;&#x8BCD;&#x8868;&#x5185;&#x5BB9;<code>type</code>&#x6765;&#x5B9A;&#x4E49;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;<code>city</code>&#x901A;&#x8FC7;<code>LIST_OF_CITIES</code>&#x8FD9;&#x4E2A;&#x6B64;&#x8868;&#x5185;&#x5BB9;&#x6765;&#x5B9A;&#x4E49;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5404;&#x57CE;&#x5E02;&#x540D;&#x79F0;&#x7684;&#x503C;&#xFF08;&#x6BD4;&#x5982;&#x676D;&#x5DDE;&#x3001;&#x5317;&#x4EAC;&#xFF09;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x4E00;&#x4E2A;&#x8BCD;&#x8868;&#x8FD8;&#x53EF;&#x4EE5;&#x5F15;&#x7528;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x9884;&#x5148;&#x5B9A;&#x4E49;&#x597D;&#x5E76;&#x5BF9;&#x5916;&#x5F00;&#x653E;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x7B49;&#xFF0C;&#x6B64;&#x90E8;&#x5206;&#x5C06;&#x4F1A;&#x9646;&#x7EED;&#x5F00;&#x653E;&#x3002;</p>
+<p>&#x8BCD;&#x8868;&#x901A;&#x8FC7;&#x8BCD;&#x8868;&#x540D;&#x79F0;<code>name</code>&#x548C;&#x8BCD;&#x8868;&#x5185;&#x5BB9;<code>type</code>&#x6765;&#x5B9A;&#x4E49;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;<code>city</code>&#x901A;&#x8FC7;<code>LIST_OF_CITIES</code>&#x8FD9;&#x4E2A;&#x6B64;&#x8868;&#x5185;&#x5BB9;&#x6765;&#x5B9A;&#x4E49;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5404;&#x57CE;&#x5E02;&#x540D;&#x79F0;&#x7684;&#x503C;&#xFF08;&#x6BD4;&#x5982;&#x676D;&#x5DDE;&#x3001;&#x5317;&#x4EAC;&#xFF09;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x4E00;&#x4E2A;&#x8BCD;&#x8868;&#x8FD8;&#x53EF;&#x4EE5;&#x5F15;&#x7528;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x9884;&#x5148;&#x5B9A;&#x4E49;&#x597D;&#x5E76;&#x5BF9;&#x5916;&#x5F00;&#x653E;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x7B49;&#xFF0C;&#x6B64;&#x90E8;&#x5206;&#x5C06;&#x4F1A;&#x9646;&#x7EED;&#x5F00;&#x653E;&#x3002;</p>
 <h2 id="&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;">&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;</h2>
 <p>&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x7528;&#x6237;&#x8F93;&#x5165;&#x6570;&#x636E;&#x548C;&#x610F;&#x56FE;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;
 &#x7528;&#x6237;&#x8F93;&#x5165;&#x6570;&#x636E;&#x901A;&#x8FC7;&#x8BCD;&#x8868;&#x548C;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x6765;&#x5B9A;&#x4E49;&#x3002;</p>
+<h3 id="&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF08;usersays&#xFF09;">&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF08;user_says&#xFF09;</h3>
+<p>&#x60A8;&#x9700;&#x8981;&#x4E3A;&#x610F;&#x56FE;&#x914D;&#x7F6E;&#x4EFB;&#x4F55;&#x53EF;&#x80FD;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF0C;&#x5F62;&#x6210;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x4E0A;&#x4F8B;&#x4E2D;&#x610F;&#x56FE;&#x5B9A;&#x4E49;&#x7684;JSON&#x8FDB;&#x884C;&#x5B8C;&#x5584;&#xFF1A;</p>
+<pre><code class="lang-json">{
+ <span class="hljs-string">&quot;intents&quot;</span>: [
+  {
+   <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;bestcoffeebar&quot;</span>,
+   <span class="hljs-string">&quot;slots&quot;</span>: [
+        {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;city&quot;</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIST_OF_CITIES&quot;</span>
+        }
+   ],
+    <span class="hljs-string">&quot;user_says&quot;</span>:[
+        <span class="hljs-string">&quot;$city&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&quot;</span>,
+        <span class="hljs-string">&quot;$city&#x54EA;&#x91CC;&#x6709;&#x597D;&#x4E00;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&quot;</span>,
+        <span class="hljs-string">&quot;$city&#x54EA;&#x91CC;&#x6709;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&quot;</span>
+        ]
+  }
+    {
+    <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;nicedrink&quot;</span>,
+    <span class="hljs-string">&quot;user_says&quot;</span>: [
+        <span class="hljs-string">&quot;&#x7C73;&#x8428;&#x5496;&#x5561;&#x54EA;&#x79CD;&#x6700;&#x597D;&#x559D;&quot;</span>,
+        <span class="hljs-string">&quot;&#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x79CD;&quot;</span>,
+        ]
+    }
+ ]
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6709;3&#x53E5;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5BF9;&#x5E94;&#x5230;&#x4E86;&#x610F;&#x56FE;<code>bestcoffeebar</code>&#xFF0C;&#x6709;2&#x53E5;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5BF9;&#x5E94;&#x5230;&#x4E86;&#x610F;&#x56FE;<code>nicedrink</code>&#x3002;&#x610F;&#x5473;&#x7740;&#x7528;&#x6237;&#x8BF4;&#x51FA;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x5339;&#x914D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x610F;&#x56FE;&#x3002;</p>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x9762;&#x5173;&#x4E8E;<code>$</code>&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4F1A;&#x5728;&#x4E0B;&#x65B9;<a href="#&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x5185;&#x5BB9;slot">&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x5185;&#x5BB9;</a>&#x7EE7;&#x7EED;&#x8BF4;&#x5230;&#x3002;</p>
+</blockquote>
+<p>&#x7528;&#x6237;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x679A;&#x4E3E;&#xFF0C;&#x540C;&#x65F6;&#x652F;&#x6301;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5177;&#x4F53;&#x8BF7;&#x53C2;&#x8003;<a href="rokid-regular-expression.html">Rokid&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4F7F;&#x7528;&#x6307;&#x5357;</a>&#x3002;</p>
+<p>&#x8BF7;&#x914D;&#x7F6E;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x7528;&#x4E8E;&#x8BED;&#x53E5;&#x4EE5;&#x5339;&#x914D;&#x7528;&#x6237;&#x591A;&#x79CD;&#x591A;&#x6837;&#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x540E;&#x7EED;&#x586B;&#x5199;&#x6280;&#x80FD;&#x53D1;&#x5E03;&#x4FE1;&#x606F;&#x65F6;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x4ECE;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x4E2D;&#x9009;&#x51FA;3&#x53E5;&#x6700;&#x80FD;&#x4EE3;&#x8868;&#x60A8;&#x6280;&#x80FD;&#x7279;&#x70B9;&#x7684;&#x8BED;&#x53E5;&#x5C55;&#x793A;&#x5728;&#x6280;&#x80FD;&#x8BF4;&#x660E;&#x4E2D;&#x544A;&#x77E5;&#x7528;&#x6237;&#x3002;</p>
+<p><strong>&#x7279;&#x522B;&#x63D0;&#x9192;&#xFF1A;</strong>
+&#x7528;&#x6237;&#x8BED;&#x53E5;&#x662F;&#x53E5;&#x5F0F;&#x5F3A;&#x5339;&#x914D;&#xFF0C;&#x9664;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x5916;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x5728;&#x53E5;&#x672B;&#x6DFB;&#x52A0;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x53E5;&#x5F0F;&#x65E0;&#x6CD5;&#x5339;&#x914D;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x5728;&#x4E0A;&#x4F8B;&#x4E2D;&#x5C06;&#x8BED;&#x53E5;&#x52A0;&#x4E0A;<code>&#xFF1F;</code>&#x6807;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-text">&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x53EA;&#x6709;ASR&#x89E3;&#x6790;&#x7ED3;&#x679C;&#x4E3A;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;</code>&#x7684;&#x8BED;&#x53E5;&#x624D;&#x53EF;&#x4EE5;&#x88AB;&#x8BC6;&#x522B;&#xFF0C;&#x800C;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;</code>&#x5219;&#x65E0;&#x6CD5;&#x88AB;&#x8BC6;&#x522B;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x914D;&#x7F6E;&#x7684;&#x8BED;&#x53E5;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-text">&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x8BED;&#x53E5;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;</code>&#x548C;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;</code>&#x4EE5;&#x53CA;&#x672B;&#x5C3E;&#x5E26;&#x6709;&#x5176;&#x4ED6;&#x6807;&#x70B9;&#x7684;&#x53E5;&#x5B50;&#x5747;&#x80FD;&#x88AB;&#x6B63;&#x786E;&#x8BC6;&#x522B;&#x3002;</p>
 <h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#xFF08;slot&#xFF09;">&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#xFF08;slot&#xFF09;</h3>
-<p>&#x5728;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x63D0;&#x4F9B;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#xFF08;&#x6B63;&#x5728;&#x51C6;&#x5907;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x5F00;&#x653E;&#xFF09;&#x4E4B;&#x5916;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x3002;
+<p>&#x5728;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x63D0;&#x4F9B;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#xFF08;&#x6B63;&#x5728;&#x51C6;&#x5907;&#x4E2D;&#xFF0C;&#x540E;&#x7EED;&#x5F00;&#x653E;&#xFF09;&#x4E4B;&#x5916;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x3002;
 &#x5728;&#x4E0A;&#x4F8B;&#x4E2D;&#xFF0C;<code>LIST_OF_CITIES</code>&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x5982;&#x4E0B;&#x90E8;&#x5206;&#xFF1A;</p>
 <pre><code class="lang-text">&#x5317;&#x4EAC;
 &#x4E0A;&#x6D77;
@@ -512,7 +561,7 @@
 &#x6DF1;&#x5733;
 &#x676D;&#x5DDE;
 </code></pre>
-<p>&#x53EA;&#x8981;&#x6709;&#x53EF;&#x80FD;&#x88AB;&#x7528;&#x6237;&#x8BF4;&#x51FA;&#x6765;&#x7684;&#x76F8;&#x5173;&#x8BCD;&#x8BED;&#xFF0C;&#x4F60;&#x90FD;&#x53EF;&#x4EE5;&#x5199;&#x8FDB;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x4E2D;&#x3002;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x5C06;&#x4F1A;&#x628A;&#x7528;&#x6237;&#x547D;&#x4E2D;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x7ED9;&#x60A8;&#x7684;&#x6280;&#x80FD;&#x3002;</p>
+<p>&#x53EA;&#x8981;&#x6709;&#x53EF;&#x80FD;&#x88AB;&#x7528;&#x6237;&#x8BF4;&#x51FA;&#x6765;&#x7684;&#x76F8;&#x5173;&#x8BCD;&#x8BED;&#xFF0C;&#x4F60;&#x90FD;&#x53EF;&#x4EE5;&#x5199;&#x8FDB;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x4E2D;&#x3002;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x5C06;&#x4F1A;&#x628A;&#x7528;&#x6237;&#x547D;&#x4E2D;&#x7684;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x7ED9;&#x60A8;&#x7684;&#x6280;&#x80FD;&#x3002;</p>
 <p>&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x628A;&#x4EFB;&#x4F55;&#x53EF;&#x4EE5;&#x62BD;&#x8C61;&#x7684;&#x5185;&#x5BB9;&#x5B9A;&#x4E49;&#x4E3A;&#x8BCD;&#x8868;&#xFF0C;&#x5E76;&#x5728;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x4E2D;&#x901A;&#x8FC7;<code>$ + &#x8BCD;&#x8868;&#x540D;&#x79F0;</code>&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;
 &#x6BD4;&#x5982;&#x5F53;&#x60A8;&#x5E0C;&#x671B;&#x5B9A;&#x4E49;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x65F6;&#xFF1A;</p>
 <pre><code class="lang-text">&#x6211;&#x60F3;&#x559D;&#x5496;&#x5561;
@@ -536,29 +585,34 @@
 <pre><code class="lang-text">$iwant&#x559D;$drink
 </code></pre>
 <p><strong>&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</strong></p>
-<p>&#x4E00;&#x4E2A;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x8BCD;&#x8868;&#x540D;&#x79F0;&#x5F15;&#x7528;&#x3002;</p>
-<p>&#x4E00;&#x4E2A;&#x6280;&#x80FD;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x7684;&#x503C;&#x7684;&#x603B;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;10&#x4E07;&#x4E2A;&#x3002;</p>
-<h3 id="&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF08;subpattern&#xFF09;">&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF08;subpattern&#xFF09;</h3>
-<p>&#x60A8;&#x9700;&#x8981;&#x4E3A;&#x610F;&#x56FE;&#x914D;&#x7F6E;&#x4EFB;&#x4F55;&#x53EF;&#x80FD;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#xFF0C;&#x5F62;&#x6210;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6709;3&#x53E5;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5BF9;&#x5E94;&#x5230;&#x4E86;&#x610F;&#x56FE;<code>bestcoffeebar</code>&#xFF0C;&#x6709;2&#x53E5;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6237;&#x8BED;&#x53E5;&#x5BF9;&#x5E94;&#x5230;&#x4E86;&#x610F;&#x56FE;<code>nicedrink</code>&#x3002;&#x610F;&#x5473;&#x7740;&#x7528;&#x6237;&#x8BF4;&#x51FA;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x5339;&#x914D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x610F;&#x56FE;&#x3002;
-&#x7528;&#x6237;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x679A;&#x4E3E;&#xFF0C;&#x540C;&#x65F6;&#x652F;&#x6301;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5177;&#x4F53;&#x8BF7;&#x53C2;&#x8003;<a href="rokid-regular-expression.html">Rokid&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4F7F;&#x7528;&#x6307;&#x5357;</a>&#x3002;</p>
-<pre><code class="lang-text">bestcoffeebar $city&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;
-bestcoffeebar $city&#x54EA;&#x91CC;&#x6709;&#x597D;&#x4E00;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;
-bestcoffeebar $city&#x54EA;&#x91CC;&#x6709;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;
-
-nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x54EA;&#x79CD;&#x6700;&#x597D;&#x559D;
-nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x79CD;
+<ul>
+<li>&#x4E00;&#x4E2A;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x8BCD;&#x8868;&#x540D;&#x79F0;&#x5F15;&#x7528;&#x3002;
+&#x6BD4;&#x5982;&#x5728;&#x4E0B;&#x4F8B;&#x4E2D;&#xFF0C;<code>LIST_OF_CITIES</code>&#x53EF;&#x4EE5;&#x88AB;&#x4E0D;&#x540C;&#x7684;&#x8BCD;&#x8868;&#x540D;&#x79F0;&#x5F15;&#x7528;&#x591A;&#x6B21;&#x3002;</li>
+</ul>
+<pre><code class="lang-json">{
+ <span class="hljs-string">&quot;intents&quot;</span>: [
+  {
+   <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;bestcoffeebar&quot;</span>,
+   <span class="hljs-string">&quot;slots&quot;</span>: [
+        {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;city1&quot;</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIST_OF_CITIES&quot;</span>
+        },
+        {
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;city2&quot;</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;LIST_OF_CITIES&quot;</span>
+        },
+   ],
+    <span class="hljs-string">&quot;user_says&quot;</span>:[
+        <span class="hljs-string">&quot;...&quot;</span>
+   ]
+  }
+ ]
+}
 </code></pre>
-<p>&#x8BF7;&#x914D;&#x7F6E;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x7528;&#x4E8E;&#x8BED;&#x53E5;&#x4EE5;&#x5339;&#x914D;&#x7528;&#x6237;&#x591A;&#x79CD;&#x591A;&#x6837;&#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x540E;&#x7EED;&#x586B;&#x5199;&#x6280;&#x80FD;&#x53D1;&#x5E03;&#x4FE1;&#x606F;&#x65F6;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x4ECE;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x4E2D;&#x9009;&#x51FA;3&#x53E5;&#x6700;&#x80FD;&#x4EE3;&#x8868;&#x60A8;&#x6280;&#x80FD;&#x7279;&#x70B9;&#x7684;&#x8BED;&#x53E5;&#x5C55;&#x793A;&#x5728;&#x6280;&#x80FD;&#x8BF4;&#x660E;&#x4E2D;&#x544A;&#x77E5;&#x7528;&#x6237;&#x3002;</p>
-<p><strong>&#x7279;&#x522B;&#x63D0;&#x9192;&#xFF1A;</strong>
-&#x7528;&#x6237;&#x8BED;&#x53E5;&#x662F;&#x53E5;&#x5F0F;&#x5F3A;&#x5339;&#x914D;&#xFF0C;&#x9664;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x5916;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x5728;&#x53E5;&#x672B;&#x6DFB;&#x52A0;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x53E5;&#x5F0F;&#x65E0;&#x6CD5;&#x5339;&#x914D;&#x3002;</p>
-<p>&#x6BD4;&#x5982;&#x5728;&#x4E0A;&#x4F8B;&#x4E2D;&#x5C06;&#x8BED;&#x53E5;&#x52A0;&#x4E0A;<code>&#xFF1F;</code>&#x6807;&#x70B9;&#xFF1A;</p>
-<pre><code class="lang-text">bestcoffeebar &#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;
-</code></pre>
-<p>&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x53EA;&#x6709;ASR&#x89E3;&#x6790;&#x7ED3;&#x679C;&#x4E3A;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;</code>&#x7684;&#x8BED;&#x53E5;&#x624D;&#x53EF;&#x4EE5;&#x88AB;&#x8BC6;&#x522B;&#xFF0C;&#x800C;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;</code>&#x5219;&#x65E0;&#x6CD5;&#x88AB;&#x8BC6;&#x522B;&#x3002;</p>
-<p>&#x76F8;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x914D;&#x7F6E;&#x7684;&#x8BED;&#x53E5;&#x4E3A;&#xFF1A;</p>
-<pre><code class="lang-text">bestcoffeebar &#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;
-</code></pre>
-<p>&#x90A3;&#x4E48;&#x8BED;&#x53E5;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;&#xFF1F;</code>&#x548C;<code>&#x676D;&#x5DDE;&#x54EA;&#x91CC;&#x597D;&#x70B9;&#x7684;&#x5496;&#x5561;&#x9986;</code>&#x4EE5;&#x53CA;&#x672B;&#x5C3E;&#x5E26;&#x6709;&#x5176;&#x4ED6;&#x6807;&#x70B9;&#x7684;&#x53E5;&#x5B50;&#x5747;&#x80FD;&#x88AB;&#x6B63;&#x786E;&#x8BC6;&#x522B;&#x3002;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x6280;&#x80FD;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x8BCD;&#x8868;&#x5185;&#x5BB9;&#x7684;&#x503C;&#x7684;&#x603B;&#x6570;&#xFF0C;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;10&#x4E07;&#x4E2A;&#x3002;</li>
+</ul>
 <h2 id="session&#x7528;&#x6CD5;&#x6307;&#x5357;">Session&#x7528;&#x6CD5;&#x6307;&#x5357;</h2>
 <p>Session&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>attributes</code>&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x5177;&#x4F53;&#x534F;&#x8BAE;&#x8BF7;&#x53C2;&#x8003;<a href="../../3-ApiReference/cloud-app-development-protocol_cn.html#22-session&#x5B9A;&#x4E49;">&#x6280;&#x80FD;&#x534F;&#x8BAE;&#x4E2D;&#x7684;Session&#x5B9A;&#x4E49;</a>&#x3002;</p>
 <p>Session&#x76EE;&#x524D;&#x53EA;&#x80FD;&#x4F5C;&#x7528;&#x5728;&#x540C;&#x4E00;Domain&#x4E0B;&#xFF0C;<strong>&#x5207;&#x6362;Domain&#x4F1A;&#x6E05;&#x7A7A;Session</strong>&#x3002;&#x6B64;&#x65F6;<code>newsession</code> = <code>true</code>&#x3002;<code>attributes</code>&#x4E5F;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;</p>
@@ -612,7 +666,7 @@ nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662
 }
 </code></pre>
 <p>&#x4E4B;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x7EE7;&#x7EED;&#x5411;&#x5929;&#x6C14;&#x6280;&#x80FD;&#x8BE2;&#x95EE;&#xFF1A;&#x201C;&#x660E;&#x5929;&#x5462;&#xFF1F;&#x201D;&#x3002;
-&#x6B64;&#x65F6;Rokid&#x5F00;&#x653E;&#x5E73;&#x53F0;&#x4F1A;&#x628A;<code>attributes</code>&#x4E2D;&#x7684;city&#x5C5E;&#x6027;&#x5E26;&#x5230;&#x8FD9;&#x6B21;&#x7684;Request&#x4E2D;&#xFF1A;</p>
+&#x6B64;&#x65F6;Rokid&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x4F1A;&#x628A;<code>attributes</code>&#x4E2D;&#x7684;city&#x5C5E;&#x6027;&#x5E26;&#x5230;&#x8FD9;&#x6B21;&#x7684;Request&#x4E2D;&#xFF1A;</p>
 <pre><code class="lang-json">{
  <span class="hljs-string">&quot;context&quot;</span>: {
   <span class="hljs-string">&quot;application&quot;</span>: {
@@ -669,8 +723,12 @@ nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662
 
             
                 
+                <a href="skill-sample-coffee.html" class="navigation navigation-prev " aria-label="Previous page: 开始创建第一个技能：我要喝咖啡">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="rokid-regular-expression.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Rokid NLP正则表达式使用指南">
+                
+                <a href="rokid-regular-expression.html" class="navigation navigation-next " aria-label="Next page: Rokid NLP正则表达式使用指南">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -681,7 +739,7 @@ nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"定义语音交互","level":"4.2","depth":1,"next":{"title":"Rokid NLP正则表达式使用指南","level":"4.3","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"previous":{"title":"开始创建第一个技能：我要喝咖啡","level":"4.1","depth":1,"url":"https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-java-tastecoffee","ref":"https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-java-tastecoffee","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/define-voice-interaction.md","mtime":"2017-05-22T10:42:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-22T13:13:03.230Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"定义语音交互","level":"4.2","depth":1,"next":{"title":"Rokid NLP正则表达式使用指南","level":"4.3","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"previous":{"title":"开始创建第一个技能：我要喝咖啡","level":"4.1","depth":1,"path":"2-RokidDocument/1-SkillsKit/skill-sample-coffee.md","ref":"2-RokidDocument/1-SkillsKit/skill-sample-coffee.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/define-voice-interaction.md","mtime":"2017-05-26T07:35:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-26T08:44:55.416Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -689,10 +747,6 @@ nicedrink &#x7C73;&#x8428;&#x5496;&#x5561;&#x6700;&#x597D;&#x559D;&#x7684;&#x662
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
