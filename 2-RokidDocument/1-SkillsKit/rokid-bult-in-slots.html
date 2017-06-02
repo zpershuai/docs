@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Rokid示例技能 · GitBook</title>
+        <title>Rokid 预定义词表 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../2-EnableVoice/get-the-certification-file.html" />
+    <link rel="next" href="rokid-regular-expression.html" />
     
     
-    <link rel="prev" href="rokid-voice-interaction-guidelines.html" />
+    <link rel="prev" href="define-voice-interaction.html" />
     
 
     </head>
@@ -188,7 +188,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="rokid-bult-in-slots.html">
+        <li class="chapter active" data-level="4.3" data-path="rokid-bult-in-slots.html">
             
                 <a href="rokid-bult-in-slots.html">
             
@@ -240,7 +240,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.7" data-path="skill-sample.html">
+        <li class="chapter " data-level="4.7" data-path="skill-sample.html">
             
                 <a href="skill-sample.html">
             
@@ -461,7 +461,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Rokid示例技能</a>
+        <a href="../.." >Rokid 预定义词表</a>
     </h1>
 </div>
 
@@ -476,16 +476,202 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="rokid&#x6280;&#x80FD;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x793A;&#x4F8B;&#x4EE3;&#x7801;">Rokid&#x6280;&#x80FD;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h1>
-<p>&#x6B64;&#x90E8;&#x5206;&#x662F;Rokid&#x6280;&#x80FD;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF08;Rokid Skills kit&#xFF09;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF0C;&#x5141;&#x8BB8;&#x5F00;&#x53D1;&#x8005;&#x5728;<strong>Rokid&#x6280;&#x80FD;&#x5F00;&#x53D1;&#x5DE5;&#x5177;</strong>&#x4E2D;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;skill&#x4EE5;&#x4F53;&#x9A8C;Rokid&#x63D0;&#x4F9B;&#x7684;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x80FD;&#x529B;&#x3002;</p>
-<h2 id="&#x6280;&#x80FD;">&#x6280;&#x80FD;</h2>
-<ul>
-<li><a href="2-RokidDocument/1-SkillsKit/skill-sample-coffee.md">&#x6211;&#x8981;&#x559D;&#x5496;&#x5561;</a>&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x793A;&#x4F8B;&#x6280;&#x80FD;&#xFF0C;&#x5B9E;&#x73B0;&#x6700;&#x7B80;&#x5355;&#x7684;&#x95EE;&#x7B54;&#x3002;</li>
-</ul>
-<h2 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h2>
-<ul>
-<li><a href="https://github.com/Rokid/rokid-skill-sample/tree/master/rokid-skill-sample-js-tutorial" target="_blank">JS&#x793A;&#x4F8B;&#x4EE3;&#x7801;</a>&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;JS&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5408;&#x96C6;&#xFF0C;&#x793A;&#x8303;&#x5982;&#x4F55;&#x4F7F;&#x7528;JS Engine&#x5F00;&#x53D1;Rokid&#x6280;&#x80FD;&#x3002;</li>
-</ul>
+                                <h1 id="rokid-&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;">Rokid &#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;</h1>
+<p>&#x76EE;&#x524D;&#x5DF2;&#x5F00;&#x653E;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#xFF0C;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#x4E2D;&#x3002;</p>
+<h2 id="1-&#x6570;&#x5B57;&#x3001;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x76F8;&#x5173;">1 &#x6570;&#x5B57;&#x3001;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x76F8;&#x5173;</h2>
+<p>&#x6570;&#x5B57;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x7B80;&#x4ECB;</th>
+<th style="text-align:left">&#x652F;&#x6301;&#x8BED;&#x8A00;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ROKID.NUMBER_ZH</td>
+<td style="text-align:left">&#x963F;&#x62C9;&#x4F2F;&#x6570;&#x5B57;&#x53CA;&#x6C49;&#x8BED;&#x6570;&#x5B57;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-&#x5E38;&#x7528;&#x540D;&#x8BCD;&#x8BCD;&#x6C47;">2 &#x5E38;&#x7528;&#x540D;&#x8BCD;&#x8BCD;&#x6C47;</h2>
+<p>&#x5E38;&#x7528;&#x540D;&#x8BCD;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x7B80;&#x4ECB;</th>
+<th style="text-align:left">&#x652F;&#x6301;&#x8BED;&#x8A00;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ROKID.DEVICE_ZH</td>
+<td style="text-align:left">&#x5BB6;&#x5C45;&#x7535;&#x5668;&#x7C7B;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.LAMPS_ZH</td>
+<td style="text-align:left">&#x5404;&#x7C7B;&#x706F;&#x5177;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.COUNTRY_ZH</td>
+<td style="text-align:left">&#x56FD;&#x5BB6;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.WORLDCITY_ZH</td>
+<td style="text-align:left">&#x4E16;&#x754C;&#x57CE;&#x5E02;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.CN_PROVINCE_ZH</td>
+<td style="text-align:left">&#x4E2D;&#x56FD;&#x7701;&#x4EFD;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.CN_CITY_ZH</td>
+<td style="text-align:left">&#x4E2D;&#x56FD;&#x57CE;&#x5E02;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.CN_ARE_ZH</td>
+<td style="text-align:left">&#x4E2D;&#x56FD;&#x53BF;&#xFF0F;&#x533A;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.COLOR_ZH</td>
+<td style="text-align:left">&#x989C;&#x8272;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.CURRENCY_ZH</td>
+<td style="text-align:left">&#x56FD;&#x9645;&#x8D27;&#x5E01;&#x5355;&#x4F4D;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.VOICE_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x58F0;&#x97F3;&#x3001;&#x97F3;&#x91CF;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.EXTRAINFO_ZH</td>
+<td style="text-align:left">&#x6E29;&#x5EA6;&#x5355;&#x4F4D;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.INFORMATION_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.ALARM_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x95F9;&#x949F;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.NETWORK_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x7F51;&#x7EDC;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.FESTIVAL_ZH</td>
+<td style="text-align:left">&#x4E2D;&#x5916;&#x8282;&#x65E5;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.SOLARTERMS_ZH</td>
+<td style="text-align:left">&#x4E8C;&#x5341;&#x56DB;&#x8282;&#x6C14;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.LUNAR_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x519C;&#x5386;&#x548C;&#x516C;&#x5386;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.ANIMALYEAR_ZH</td>
+<td style="text-align:left">&#x751F;&#x8096;&#x5E74;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.ERAYEAR_ZH</td>
+<td style="text-align:left">&#x5E72;&#x652F;&#x5E74;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.ZONE_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x65E9;&#x4E0A;&#x3001;&#x665A;&#x4E0A;&#x7B49;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.MOVIE_ZH</td>
+<td style="text-align:left">&#x7535;&#x5F71;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-&#x5176;&#x4ED6;&#x8BCD;&#x6C47;">3 &#x5176;&#x4ED6;&#x8BCD;&#x6C47;</h2>
+<p>&#x5176;&#x4ED6;&#x8BCD;&#x6C47;&#x7684;&#x9884;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x81EA;&#x5B9A;&#x4E49;&#x8BCD;&#x8868;&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x7B80;&#x4ECB;</th>
+<th style="text-align:left">&#x652F;&#x6301;&#x8BED;&#x8A00;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ROKID.AH_ZH</td>
+<td style="text-align:left">&#x8BED;&#x6C14;&#x8BCD;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.ALL_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x6240;&#x6709;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.YES_ZH</td>
+<td style="text-align:left">&#x8868;&#x793A;&#x300C;&#x80AF;&#x5B9A;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.NO_ZH</td>
+<td style="text-align:left">&#x8868;&#x793A;&#x300C;&#x5426;&#x5B9A;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.HIGH_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x9AD8;&#x3001;&#x5927;&#x3001;&#x5347;&#x300D;&#x7B49;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.LOW_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x4F4E;&#x3001;&#x5C0F;&#x3001;&#x964D;&#x300D;&#x7B49;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.NEW_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x65B0;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.OLD_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x65E7;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+<tr>
+<td style="text-align:left">ROKID.TRIGGER_ZH</td>
+<td style="text-align:left">&#x63CF;&#x8FF0;&#x300C;&#x82E5;&#x742A;&#x300D;&#x7684;&#x8BCD;&#x6C47;</td>
+<td style="text-align:left">&#x4E2D;&#x6587;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -513,12 +699,12 @@
 
             
                 
-                <a href="rokid-voice-interaction-guidelines.html" class="navigation navigation-prev " aria-label="Previous page: Rokid语音交互指南">
+                <a href="define-voice-interaction.html" class="navigation navigation-prev " aria-label="Previous page: 定义语音交互">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../2-EnableVoice/get-the-certification-file.html" class="navigation navigation-next " aria-label="Next page: 获取认证文件">
+                <a href="rokid-regular-expression.html" class="navigation navigation-next " aria-label="Next page: Rokid NLP正则表达式使用指南">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -529,7 +715,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid示例技能","level":"4.7","depth":1,"next":{"title":"获取认证文件","level":"5.1","depth":1,"path":"2-RokidDocument/2-EnableVoice/get-the-certification-file.md","ref":"2-RokidDocument/2-EnableVoice/get-the-certification-file.md","articles":[]},"previous":{"title":"Rokid语音交互指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/skill-sample.md","mtime":"2017-05-27T16:05:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-02T19:24:23.767Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid 预定义词表","level":"4.3","depth":1,"next":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"previous":{"title":"定义语音交互","level":"4.2","depth":1,"path":"2-RokidDocument/1-SkillsKit/define-voice-interaction.md","ref":"2-RokidDocument/1-SkillsKit/define-voice-interaction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-bult-in-slots.md","mtime":"2017-06-02T19:22:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-02T19:24:23.767Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
