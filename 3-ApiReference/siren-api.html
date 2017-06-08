@@ -663,236 +663,252 @@ stop_input_stream&#x6700;&#x540E;&#x91CD;&#x65B0;&#x5C1D;&#x8BD5;&#x8C03;&#x7528
 <h5 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h5>
 <p>&#x65E0;</p>
 <h5 id="&#x8BED;&#x97F3;&#x4E8B;&#x4EF6;&#x8BF4;&#x660E;">&#x8BED;&#x97F3;&#x4E8B;&#x4EF6;&#x8BF4;&#x660E;</h5>
-<p><code>SIREN_EVENT_VAD_START</code>: VAD_START&#x4E8B;&#x4EF6;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x97F3;&#x5E27;&#x7684;&#x5F00;&#x59CB;<br><code>SIREN_EVENT_VAD_DATA</code>: VAD_DATA&#x4E8B;&#x4EF6;&#xFF0C;&#x643A;&#x5E26;&#x8BED;&#x97F3;&#x4FE1;&#x606F;&#x7684;&#x8BED;&#x97F3;&#x5E27;<br><code>SIREN_EVENT_VAD_END</code>: VAD_END&#x4E8B;&#x4EF6;&#xFF0C;&#x8BED;&#x97F3;&#x5E27;&#x7684;&#x7ED3;&#x675F;&#x5E27;<br><code>SIREN_EVENT_VAD_CANCLE</code>: &#x56E0;&#x4E3A;&#x8BEF;&#x6FC0;&#x6D3B;&#x5F15;&#x53D1;&#x7684;VAD_CANCLE&#x4E8B;&#x4EF6;</p>
-<pre><code class="lang-SIREN_EVENT_WAKE_VAD_START```:">```SIREN_EVENT_WAKE_VAD_DATA```:   
-```SIREN_EVENT_WAKE_VAD_END```:    
-```SIREN_EVENT_WAKE_PRE``` : &#x7591;&#x4F3C;&#x6FC0;&#x6D3B;&#x8BCD;&#x7684;&#x5F00;&#x59CB;&#xFF0C;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x6FC0;&#x6D3B;&#x6807;&#x51C6;&#xFF0C;&#x5DF2;&#x5E9F;&#x5F03;
-```SIREN_EVENT_WAKE_NOCMD```: &#x5355;&#x72EC;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;  
-```SIREN_EVENT_WAKE_CMD```: &#x4EE5;&#x6FC0;&#x6D3B;&#x8BCD;&#x5F00;&#x5934;&#xFF0C;&#x4EE5;&#x5176;&#x4ED6;&#x8BED;&#x97F3;&#x7ED3;&#x5C3E;&#x7684;&#x6DF7;&#x5408;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;asr&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x5224;&#x65AD;&#x6FC0;&#x6D3B;&#x60C5;&#x51B5;
-```SIREN_EVENT_WAKE_CANCLE```: &#x53EF;&#x4EE5;&#x672C;&#x5730;&#x5224;&#x65AD;&#x7684;&#x8BEF;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;   
-```SIREN_EVENT_SLEEP```: &#x7761;&#x7720;&#x6FC0;&#x6D3B;&#x8BCD;
-```SIREN_EVENT_HOTWORD```: wtf???   
-```SIREN_EVENT_VOICE_PRINT```: &#x58F0;&#x7EB9;&#x4E8B;&#x4EF6;&#xFF0C;&#x5305;&#x542B;&#x58F0;&#x7EB9;&#x4FE1;&#x606F;  
-```SIREN_EVENT_DIRTY```: wtf???   
-
-
-## Siren&#x63A5;&#x53E3;&#x8BF4;&#x660E; 
-
-### 1. &#x521D;&#x59CB;&#x5316;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x521D;&#x59CB;&#x5316;Siren&#x8F6F;&#x4EF6;&#x6808;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre>
-<p>siren_status_t init_siren(const char <em>path, siren_input_if_t </em>input)</p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-| &#x53C2;&#x6570; | &#x7C7B;&#x578B; | &#x8BF4;&#x660E; |
-| ------| ------ | ------ |
-| path | const char * | JSON&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7EDD;&#x5BF9;&#x5730;&#x5740; |
-| input | siren_input_if_t * | siren&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x63A5;&#x53E3; |
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x53EF;&#x80FD;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;:   
-1. ```SIREN_STATUS_OK```: &#x521D;&#x59CB;&#x5316;&#x6210;&#x529F;  
-2. ```SIREN_STATUS_CONFIG_ERROR```: &#x89E3;&#x6790;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x51FA;&#x9519;  
-3. ```SIREN_STATUS_CONFIG_NO_FOUND```: &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;  
-4. ```SIREN_STATUS_ERROR```: &#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;
-
-
-### 2. &#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x6D41;&#xFF0C;&#x6B64;&#x65F6;siren&#x5C06;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x4ECE;siren_input_if_t&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x63A5;&#x53E3;&#x4E2D;&#x8BFB;&#x53D6;&#x97F3;&#x9891;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;stop_siren_process_stream&#x6216;stop_siren_stream&#x88AB;&#x8C03;&#x7528; 
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void start_siren_process_stream(siren_proc_callback_t *proc_callback) </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-| &#x53C2;&#x6570; | &#x7C7B;&#x578B; | &#x8BF4;&#x660E; |
-| ------| ------ | ------ |
-| proc_callback | siren_proc_callback_t * | &#x5904;&#x7406;&#x7ED3;&#x679C;&#x56DE;&#x8C03;&#x63A5;&#x53E3; |
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 3. &#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x6B64;&#x65F6;siren&#x5C06;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x4ECE;siren_input_if_t&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x63A5;&#x53E3;&#x4E2D;&#x8BFB;&#x53D6;&#x97F3;&#x9891;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;stop_siren_raw_stream&#x6216;stop_siren_stream&#x88AB;&#x8C03;&#x7528;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void start_siren_raw_stream() </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 4. &#x5173;&#x95ED;&#x6570;&#x636E;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x5173;&#x95ED;&#x6570;&#x636E;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void stop_siren_process_stream() </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 5. &#x5173;&#x95ED;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x5173;&#x95ED;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void stop_siren_raw_stream() </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 6. &#x5173;&#x95ED;&#x97F3;&#x9891;&#x6D41;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x5F3A;&#x5236;&#x5173;&#x95ED;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void stop_siren_stream() </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 7. &#x8BFB;&#x53D6;ProcessedVoicePool&#x4E2D;&#x7684;&#x8BED;&#x97F3;&#x6570;&#x636E;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x901A;&#x8FC7;token&#x8BFB;&#x53D6;ProcessedVoicePool&#x4E2D;&#x7F13;&#x5B58;&#x7684;&#x5DF2;&#x5904;&#x7406;&#x7684;&#x8BED;&#x97F3;&#x6570;&#x636E;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x963B;&#x585E;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>siren_voice_pkg_t<em> read_siren_voice(void </em>token, int block_nums) </p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-| &#x53C2;&#x6570; | &#x7C7B;&#x578B; | &#x8BF4;&#x660E; |
-| ------| ------ | ------ |
-| token | void * | siren_proc_callback_t&#x7684;siren_proc_event&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;token |
-| length | int | &#x8BED;&#x97F3;&#x5305;&#x957F;&#x5EA6;&#xFF0C;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D; |
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-siren_voice_pkg_t&#xFF0C;&#x5982;&#x679C;token&#x4E0D;&#x5408;&#x6CD5;&#x6216;length&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;NULL
-
-### 8. &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;siren&#x7684;&#x6FC0;&#x6D3B;/&#x7761;&#x7720;&#x72B6;&#x6001;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;siren&#x7684;&#x6FC0;&#x6D3B;/&#x7761;&#x7720;&#x72B6;&#x6001;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void set_siren_state(siren_state_t state, state_changed_callback_t *callback)</p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-| &#x53C2;&#x6570; | &#x7C7B;&#x578B; | &#x8BF4;&#x660E; |
-| ------| ------ | ------ |
-| state | siren_state_t | &#x53EF;&#x4EE5;&#x5728;siren_state_awake&#x548C;siren_state_sleep&#x4E2D;&#x9009;&#x62E9; |
-| callback | state_changed_callback_t * | &#x5982;&#x679C;&#x4E0D;&#x662F;NULL&#x5219;&#x8C03;&#x7528;&#x4E3A;&#x5F02;&#x6B65;&#xFF0C;&#x5426;&#x5219;&#x4E3A;&#x540C;&#x6B65;&#xFF0C;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x4F1A;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#x8C03;&#x7528;callback&#x63A5;&#x53E3; |
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 9. &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x5BFB;&#x5411;&#x89D2;&#x5EA6;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-
-&gt; &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x5BFB;&#x5411;&#x89D2;&#x5EA6;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void set_siren_steer(float ho, float ver)</p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-| &#x53C2;&#x6570; | &#x7C7B;&#x578B; | &#x8BF4;&#x660E; |
-| ------| ------ | ------ |
-| ho | float | &#x6C34;&#x5E73;&#x89D2;&#x5EA6; |
-| ver | float | &#x5782;&#x76F4;&#x89D2;&#x5EA6; |
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 10. &#x5173;&#x95ED;siren&#x8F6F;&#x4EF6;&#x6808;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-&gt; &#x5173;&#x95ED;siren&#x8F6F;&#x4EF6;&#x6808;&#xFF0C;&#x56DE;&#x6536;&#x6240;&#x6709;&#x5185;&#x5B58;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>void destroy_siren()</p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-
-### 11. &#x8DE8;&#x8FDB;&#x7A0B;&#x8FDE;&#x63A5;siren&#x5185;&#x5B58;&#x6C60;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-&gt; &#x5F88;&#x591A;&#x65F6;&#x5019;&#x7528;&#x6237;&#x5E0C;&#x671B;&#x5728;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;read_siren_voice&#x51FD;&#x6570;&#x6765;&#x8BFB;&#x53D6;siren&#x7684;&#x5185;&#x5B58;&#x6C60;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x518D;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x8FDE;&#x63A5;&#x5230;siren&#x7684;&#x5185;&#x5B58;&#x6C60;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;token&#x8BFB;&#x53D6;&#x8BED;&#x97F3;&#x4FE1;&#x606F;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>siren_status_t attach_to_siren()</p>
-<pre><code>
-#### &#x53C2;&#x6570;
-
-&#x65E0;
-
-#### &#x8FD4;&#x56DE;&#x503C;
-
-&#x65E0;
-
-### 12. &#x6DFB;&#x52A0;&#x5524;&#x9192;&#x6FC0;&#x6D3B;&#x8BCD;
-
-#### &#x51FD;&#x6570;&#x529F;&#x80FD;
-&gt; &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x8BCD;
-
-#### &#x51FD;&#x6570;&#x539F;&#x578B;
-</code></pre><p>siren_status_t add_vt_word(const char *vt_word) 
-```</p>
-<h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p><code>SIREN_EVENT_VAD_START</code>: VAD_START&#x4E8B;&#x4EF6;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x97F3;&#x5E27;&#x7684;&#x5F00;&#x59CB;  </p>
+<p><code>SIREN_EVENT_VAD_DATA</code>: VAD_DATA&#x4E8B;&#x4EF6;&#xFF0C;&#x643A;&#x5E26;&#x8BED;&#x97F3;&#x4FE1;&#x606F;&#x7684;&#x8BED;&#x97F3;&#x5E27;   </p>
+<p><code>SIREN_EVENT_VAD_END</code>: VAD_END&#x4E8B;&#x4EF6;&#xFF0C;&#x8BED;&#x97F3;&#x5E27;&#x7684;&#x7ED3;&#x675F;&#x5E27;   </p>
+<p><code>SIREN_EVENT_VAD_CANCLE</code>: &#x56E0;&#x4E3A;&#x8BEF;&#x6FC0;&#x6D3B;&#x5F15;&#x53D1;&#x7684;VAD_CANCLE&#x4E8B;&#x4EF6;&#x3002;
+<code>SIREN_EVENT_WAKE_VAD_START</code> :
+<code>SIREN_EVENT_WAKE_VAD_DATA</code> :</p>
+<p><code>SIREN_EVENT_WAKE_VAD_END</code> :  </p>
+<p><code>SIREN_EVENT_WAKE_PRE</code> : &#x7591;&#x4F3C;&#x6FC0;&#x6D3B;&#x8BCD;&#x7684;&#x5F00;&#x59CB;&#xFF0C;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x6FC0;&#x6D3B;&#x6807;&#x51C6;&#xFF0C;&#x5DF2;&#x5E9F;&#x5F03;</p>
+<p><code>SIREN_EVENT_WAKE_NOCMD</code>: &#x5355;&#x72EC;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;  </p>
+<p><code>SIREN_EVENT_WAKE_CMD</code>: &#x4EE5;&#x6FC0;&#x6D3B;&#x8BCD;&#x5F00;&#x5934;&#xFF0C;&#x4EE5;&#x5176;&#x4ED6;&#x8BED;&#x97F3;&#x7ED3;&#x5C3E;&#x7684;&#x6DF7;&#x5408;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;asr&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x5224;&#x65AD;&#x6FC0;&#x6D3B;&#x60C5;&#x51B5;</p>
+<p><code>SIREN_EVENT_WAKE_CANCLE</code>: &#x53EF;&#x4EE5;&#x672C;&#x5730;&#x5224;&#x65AD;&#x7684;&#x8BEF;&#x6FC0;&#x6D3B;&#x4E8B;&#x4EF6;   </p>
+<p><code>SIREN_EVENT_SLEEP</code>: &#x7761;&#x7720;&#x6FC0;&#x6D3B;&#x8BCD;</p>
+<p><code>SIREN_EVENT_HOTWORD</code>: wtf???   </p>
+<p><code>SIREN_EVENT_VOICE_PRINT</code>: &#x58F0;&#x7EB9;&#x4E8B;&#x4EF6;&#xFF0C;&#x5305;&#x542B;&#x58F0;&#x7EB9;&#x4FE1;&#x606F;  </p>
+<p><code>SIREN_EVENT_DIRTY</code>: wtf???   </p>
+<h2 id="siren&#x63A5;&#x53E3;&#x8BF4;&#x660E;">Siren&#x63A5;&#x53E3;&#x8BF4;&#x660E;</h2>
+<h3 id="1-&#x521D;&#x59CB;&#x5316;">1. &#x521D;&#x59CB;&#x5316;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x521D;&#x59CB;&#x5316;Siren&#x8F6F;&#x4EF6;&#x6808;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>siren_status_t init_siren(const char *path, siren_input_if_t *input)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>const char *</td>
+<td>JSON&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7EDD;&#x5BF9;&#x5730;&#x5740;</td>
+</tr>
+<tr>
+<td>input</td>
+<td>siren_input_if_t *</td>
+<td>siren&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x63A5;&#x53E3;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x53EF;&#x80FD;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;:   </p>
+<ol>
+<li><code>SIREN_STATUS_OK</code>: &#x521D;&#x59CB;&#x5316;&#x6210;&#x529F;  </li>
+<li><code>SIREN_STATUS_CONFIG_ERROR</code>: &#x89E3;&#x6790;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x51FA;&#x9519;  </li>
+<li><code>SIREN_STATUS_CONFIG_NO_FOUND</code>: &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;  </li>
+<li><code>SIREN_STATUS_ERROR</code>: &#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;</li>
+</ol>
+<h3 id="2-&#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;">2. &#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x6D41;&#xFF0C;&#x6B64;&#x65F6;siren&#x5C06;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x4ECE;siren_input_if_t&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x63A5;&#x53E3;&#x4E2D;&#x8BFB;&#x53D6;&#x97F3;&#x9891;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;stop_siren_process_stream&#x6216;stop_siren_stream&#x88AB;&#x8C03;&#x7528; </p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void start_siren_process_stream(siren_proc_callback_t *proc_callback)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>proc_callback</td>
+<td>siren_proc_callback_t *</td>
+<td>&#x5904;&#x7406;&#x7ED3;&#x679C;&#x56DE;&#x8C03;&#x63A5;&#x53E3;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="3-&#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;">3. &#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x6B64;&#x65F6;siren&#x5C06;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x4ECE;siren_input_if_t&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x63A5;&#x53E3;&#x4E2D;&#x8BFB;&#x53D6;&#x97F3;&#x9891;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;stop_siren_raw_stream&#x6216;stop_siren_stream&#x88AB;&#x8C03;&#x7528;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void start_siren_raw_stream()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="4-&#x5173;&#x95ED;&#x6570;&#x636E;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;">4. &#x5173;&#x95ED;&#x6570;&#x636E;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5173;&#x95ED;&#x6570;&#x636E;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void stop_siren_process_stream()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="5-&#x5173;&#x95ED;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;">5. &#x5173;&#x95ED;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5173;&#x95ED;&#x88F8;&#x6570;&#x636E;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x8BED;&#x97F3;&#x5904;&#x7406;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void stop_siren_raw_stream()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="6-&#x5173;&#x95ED;&#x97F3;&#x9891;&#x6D41;">6. &#x5173;&#x95ED;&#x97F3;&#x9891;&#x6D41;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5F3A;&#x5236;&#x5173;&#x95ED;&#x97F3;&#x9891;&#x6D41;&#xFF0C;&#x5C06;&#x8C03;&#x7528;siren_input_if_t&#x7684;stop_stream&#x65B9;&#x6CD5;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void stop_siren_stream()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="7-&#x8BFB;&#x53D6;processedvoicepool&#x4E2D;&#x7684;&#x8BED;&#x97F3;&#x6570;&#x636E;">7. &#x8BFB;&#x53D6;ProcessedVoicePool&#x4E2D;&#x7684;&#x8BED;&#x97F3;&#x6570;&#x636E;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x901A;&#x8FC7;token&#x8BFB;&#x53D6;ProcessedVoicePool&#x4E2D;&#x7F13;&#x5B58;&#x7684;&#x5DF2;&#x5904;&#x7406;&#x7684;&#x8BED;&#x97F3;&#x6570;&#x636E;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x963B;&#x585E;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>siren_voice_pkg_t* read_siren_voice(void *token, int block_nums)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>void *</td>
+<td>siren_proc_callback_t&#x7684;siren_proc_event&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;token</td>
+</tr>
+<tr>
+<td>length</td>
+<td>int</td>
+<td>&#x8BED;&#x97F3;&#x5305;&#x957F;&#x5EA6;&#xFF0C;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>siren_voice_pkg_t&#xFF0C;&#x5982;&#x679C;token&#x4E0D;&#x5408;&#x6CD5;&#x6216;length&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;NULL</p>
+<h3 id="8-&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;siren&#x7684;&#x6FC0;&#x6D3B;&#x7761;&#x7720;&#x72B6;&#x6001;">8. &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;siren&#x7684;&#x6FC0;&#x6D3B;/&#x7761;&#x7720;&#x72B6;&#x6001;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;siren&#x7684;&#x6FC0;&#x6D3B;/&#x7761;&#x7720;&#x72B6;&#x6001;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void set_siren_state(siren_state_t state, state_changed_callback_t *callback)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>state</td>
+<td>siren_state_t</td>
+<td>&#x53EF;&#x4EE5;&#x5728;siren_state_awake&#x548C;siren_state_sleep&#x4E2D;&#x9009;&#x62E9;</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>state_changed_callback_t *</td>
+<td>&#x5982;&#x679C;&#x4E0D;&#x662F;NULL&#x5219;&#x8C03;&#x7528;&#x4E3A;&#x5F02;&#x6B65;&#xFF0C;&#x5426;&#x5219;&#x4E3A;&#x540C;&#x6B65;&#xFF0C;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x4F1A;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#x8C03;&#x7528;callback&#x63A5;&#x53E3;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="9-&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x5BFB;&#x5411;&#x89D2;&#x5EA6;">9. &#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x5BFB;&#x5411;&#x89D2;&#x5EA6;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x5BFB;&#x5411;&#x89D2;&#x5EA6;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void set_siren_steer(float ho, float ver)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ho</td>
+<td>float</td>
+<td>&#x6C34;&#x5E73;&#x89D2;&#x5EA6;</td>
+</tr>
+<tr>
+<td>ver</td>
+<td>float</td>
+<td>&#x5782;&#x76F4;&#x89D2;&#x5EA6;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="10-&#x5173;&#x95ED;siren&#x8F6F;&#x4EF6;&#x6808;">10. &#x5173;&#x95ED;siren&#x8F6F;&#x4EF6;&#x6808;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5173;&#x95ED;siren&#x8F6F;&#x4EF6;&#x6808;&#xFF0C;&#x56DE;&#x6536;&#x6240;&#x6709;&#x5185;&#x5B58;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>void destroy_siren()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="11-&#x8DE8;&#x8FDB;&#x7A0B;&#x8FDE;&#x63A5;siren&#x5185;&#x5B58;&#x6C60;">11. &#x8DE8;&#x8FDB;&#x7A0B;&#x8FDE;&#x63A5;siren&#x5185;&#x5B58;&#x6C60;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;&#x7528;&#x6237;&#x5E0C;&#x671B;&#x5728;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;read_siren_voice&#x51FD;&#x6570;&#x6765;&#x8BFB;&#x53D6;siren&#x7684;&#x5185;&#x5B58;&#x6C60;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x518D;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x8FDE;&#x63A5;&#x5230;siren&#x7684;&#x5185;&#x5B58;&#x6C60;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;token&#x8BFB;&#x53D6;&#x8BED;&#x97F3;&#x4FE1;&#x606F;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>siren_status_t attach_to_siren()
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
+<p>&#x65E0;</p>
+<h4 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>&#x65E0;</p>
+<h3 id="12-&#x6DFB;&#x52A0;&#x5524;&#x9192;&#x6FC0;&#x6D3B;&#x8BCD;">12. &#x6DFB;&#x52A0;&#x5524;&#x9192;&#x6FC0;&#x6D3B;&#x8BCD;</h3>
+<h4 id="&#x51FD;&#x6570;&#x529F;&#x80FD;">&#x51FD;&#x6570;&#x529F;&#x80FD;</h4>
+<blockquote>
+<p>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x8BCD;</p>
+</blockquote>
+<h4 id="&#x51FD;&#x6570;&#x539F;&#x578B;">&#x51FD;&#x6570;&#x539F;&#x578B;</h4>
+<pre><code>siren_status_t add_vt_word(const char *vt_word)
+</code></pre><h4 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h4>
 <table>
 <thead>
 <tr>
@@ -954,7 +970,7 @@ siren_voice_pkg_t&#xFF0C;&#x5982;&#x679C;token&#x4E0D;&#x5408;&#x6CD5;&#x6216;le
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid 前端降噪模块 API文档","level":"6.4","depth":1,"next":{"title":"Rokid语音产品设计指南","level":"7.1","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-hardware-design-guide.md","ref":"2-RokidDocument/2-EnableVoice/rokid-hardware-design-guide.md","articles":[]},"previous":{"title":"Rokid 客户端 SDK 文档","level":"6.3","depth":1,"path":"3-ApiReference/rokid-client-sdk-doc.md","ref":"3-ApiReference/rokid-client-sdk-doc.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/siren-api.md","mtime":"2017-06-06T06:03:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-06T06:04:07.723Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid 前端降噪模块 API文档","level":"6.4","depth":1,"next":{"title":"Rokid语音产品设计指南","level":"7.1","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-hardware-design-guide.md","ref":"2-RokidDocument/2-EnableVoice/rokid-hardware-design-guide.md","articles":[]},"previous":{"title":"Rokid 客户端 SDK 文档","level":"6.3","depth":1,"path":"3-ApiReference/rokid-client-sdk-doc.md","ref":"3-ApiReference/rokid-client-sdk-doc.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/siren-api.md","mtime":"2017-06-08T13:04:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T13:05:44.110Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
