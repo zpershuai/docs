@@ -478,7 +478,7 @@
                                 
                                 <h1 id="rokid-js-engine-&#x4F7F;&#x7528;&#x6307;&#x5357;">Rokid JS Engine &#x4F7F;&#x7528;&#x6307;&#x5357;</h1>
 <blockquote>
-<p>&#x5F88;&#x9AD8;&#x5174;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F16;&#x8F91;JS&#x811A;&#x672C;&#x6765;&#x642D;&#x5EFA;&#x6280;&#x80FD;&#x670D;&#x52A1;</p>
+<p>&#x6B22;&#x8FCE;&#x4F7F;&#x7528;Rokid-JS-Engine&#xFF0C;&#x5F88;&#x9AD8;&#x5174;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F16;&#x8F91;JS&#x811A;&#x672C;&#x6765;&#x642D;&#x5EFA;&#x6280;&#x80FD;&#x670D;&#x52A1;&#x3002;</p>
 </blockquote>
 <h2 id="&#x4F7F;&#x7528;js&#x811A;&#x672C;&#x66F4;&#x5FEB;&#x901F;&#x7684;&#x5F00;&#x53D1;&#x6280;&#x80FD;">&#x4F7F;&#x7528;JS&#x811A;&#x672C;&#x66F4;&#x5FEB;&#x901F;&#x7684;&#x5F00;&#x53D1;&#x6280;&#x80FD;</h2>
 <blockquote>
@@ -502,23 +502,57 @@
 <li>&#x6700;&#x540E;&#xFF0C;&#x901A;&#x8FC7;rokid.execute( )&#x89E6;&#x53D1;&#x6280;&#x80FD;&#x610F;&#x56FE;&#x3002;</li>
 </ul>
 <p>&#x4EE5;&#x4E0A;&#x4E09;&#x6B65;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
-<p>&#x5176;&#x4E2D;handlers&#xFF0C;&#x4E3A;&#x5927;&#x5BB6;&#x6240;&#x8981;&#x5199;&#x7684;&#x610F;&#x56FE;&#x6280;&#x80FD;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<p>&#x5176;&#x4E2D;handlers&#xFF0C;&#x4E3A;&#x5927;&#x5BB6;&#x6240;&#x8981;&#x5199;&#x7684;&#x610F;&#x56FE;&#x6280;&#x80FD;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x201C;&#x914D;&#x7F6E;&#x201D;&#x7F16;&#x5199;js&#x811A;&#x672C;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> handlers = {
     <span class="hljs-string">&apos;HelloWorldSample&apos;</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>});
+        <span class="hljs-keyword">try</span>{
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>});
+            <span class="hljs-comment">//&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x65F6;callback</span>
+            <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
+        }<span class="hljs-keyword">catch</span>(error){
+            <span class="hljs-comment">//&#x62A5;&#x9519;&#x65F6;callback&#x9519;&#x8BEF;</span>
+            <span class="hljs-keyword">this</span>.callback(error);
+        }
     },
     <span class="hljs-string">&apos;MediaSample&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> });
+        <span class="hljs-keyword">try</span>{
+            <span class="hljs-comment">//&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x65F6;callback</span>
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> });
+        }<span class="hljs-keyword">catch</span>(error){
+            <span class="hljs-comment">//&#x62A5;&#x9519;&#x65F6;callback&#x9519;&#x8BEF;</span>
+            <span class="hljs-keyword">this</span>.callback(error)
+        }
     }
 };
 </code></pre>
-<p>&#x5728;&quot;&#x914D;&#x7F6E;&quot;&#x7F16;&#x5199;js&#x811A;&#x672C;
-<img src="images/js.png" alt="Alt text"></p>
-<p>&#x5176;&#x4E2D;&quot;HelloWorldSample&quot;&#x4E0E;&quot;MediaSample&quot;&#x5BF9;&#x5E94;&#x4E8E;&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x4E2D;&#x7684;intent&#x3002;
-<img src="images/WX20170526-144250.png" alt="Alt text"></p>
+<blockquote>
+<p>&#x5207;&#x8BB0;&#xFF1A;&#x4E3A;&#x987A;&#x5229;&#x4E14;&#x5FEB;&#x901F;&#x6267;&#x884C;&#x811A;&#x672C;&#xFF0C;&#x4E0A;&#x8FF0;&#x4E2D;this.callback&#x662F;&#x5728;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x6CE8;&#x610F;this&#x7684;&#x6307;&#x5411;&#xFF0C;&#x5982;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x5219;jsEngine&#x5C06;0.5s&#x8F6E;&#x8BE2;&#x4E00;&#x6B21;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+</blockquote>
+<p>&#x5176;&#x4E2D;&quot;HelloWorldSample&quot;&#x4E0E;&quot;MediaSample&quot;&#x5BF9;&#x5E94;&#x4E8E;&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x4E2D;&#x7684;intent&#x3002;</p>
+<pre><code class="lang-javascript">{
+    <span class="hljs-string">&quot;intents&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;HelloWorldSample&quot;</span>,
+            <span class="hljs-string">&quot;slots&quot;</span>: [],
+            <span class="hljs-string">&quot;user_says&quot;</span>: [
+                <span class="hljs-string">&quot;&#x4F60;&#x597D;&quot;</span>
+            ]
+        },
+        {
+            <span class="hljs-string">&quot;intent&quot;</span>: <span class="hljs-string">&quot;MediaSample&quot;</span>,
+            <span class="hljs-string">&quot;slots&quot;</span>: [],
+            <span class="hljs-string">&quot;user_says&quot;</span>: [
+                <span class="hljs-string">&quot;&#x64AD;&#x653E;&quot;</span>
+            ]
+        }
+    ]
+}
+</code></pre>
 <p>&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x7684;intent&#xFF0C;slot&#x7B49;request&#x4FE1;&#x606F;&#x53EF;&#x5728;Rokid.param&#xFF08;&#x4E0B;&#x6587;&#x6709;&#x4ECB;&#x7ECD;&#xFF09;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
-<p>&#xFF08;1&#xFF09;&#x4E0A;&#x9762;&#x7684;&quot;:tts&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;tts&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;
-&#x5176;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;:</p>
+<ul>
+<li>&#x4E0A;&#x9762;&#x7684;&quot;:tts&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;tts&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;</li>
+</ul>
+<p>&#x5176;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-javascript"><span class="hljs-string">&apos;:tts&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
 
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isOverridden()) {
@@ -526,7 +560,7 @@
         <span class="hljs-keyword">return</span>
       }
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> options.tts !== <span class="hljs-string">&apos;string&apos;</span>) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`emit(&quot;:tts&quot;)&#x65F6;&quot;tts&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;&#x4E14;&#x4E3A;string&#x7C7B;&#x578B;(&#x5F53;&#x524D;tts&#x503C;&#x4E3A;<span class="hljs-subst">${options.tts}</span>)`</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`emit(&quot;:tts&quot;)&#x65F6;&quot;tts&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;&#x4E14;&#x4E3A;string&#x7C7B;&#x578B;(&#x5F53;&#x524D;tts&#x7C7B;&#x578B;&#x4E3A;<span class="hljs-subst">${typeof options.tts}</span>)`</span>);
         <span class="hljs-keyword">return</span>
       }
 
@@ -587,19 +621,21 @@
 </tr>
 </tbody>
 </table>
-<p>&#xFF08;2&#xFF09;&#x4E0A;&#x9762;&#x7684;&quot;:media&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;media&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:media&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&quot;url&quot;&#x548C;&#x5C5E;&#x6027;&quot;itemType&quot;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;</p>
+<ul>
+<li>&#x4E0A;&#x9762;&#x7684;&quot;:media&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;media&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:media&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&quot;url&quot;&#x548C;&#x5C5E;&#x6027;&quot;itemType&quot;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;</li>
+</ul>
 <pre><code class="lang-javascript"><span class="hljs-string">&apos;:media&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isOverridden()) {
         <span class="hljs-keyword">return</span>
       }
 
       <span class="hljs-keyword">if</span> (!options.itemType) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;itemType&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x5F53;&#x524D;&#x5A92;&#x4F53;&#x7C7B;&#x578B;AUDIO&#x6216;VIDEO)&apos;</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;itemType&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x987B;&#x4E3A;AUDIO&#x6216;VIDEO)&apos;</span>);
         <span class="hljs-keyword">return</span>
       }
 
       <span class="hljs-keyword">if</span> (!options.url) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;url&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x4E3A;MediaPlayer&#x6307;&#x660E;&#x53EF;&#x7528;&#x7684;&#x6D41;&#x5A92;&#x4F53;&#x64AD;&#x653E;&#x94FE;&#x63A5;)&apos;</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;url&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x5F53;&#x524D;url&#x7C7B;&#x578B;&#x4E3A;${typeof options.url})&apos;</span>);
         <span class="hljs-keyword">return</span>
       }
 
@@ -683,13 +719,21 @@
 </tr>
 </tbody>
 </table>
-<p>&#x5177;&#x4F53;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x53EF;&#x53C2;&#x89C1;&#xFF1A;<a href="https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response" target="_blank">https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response</a></p>
+<p>&#x5177;&#x4F53;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x53EF;&#x53C2;&#x89C1;&#xFF1A;<a href="../../3-ApiReference/cloud-app-development-protocol_cn.html#3-response">Rokid&#x6280;&#x80FD;Response&#x534F;&#x8BAE;</a></p>
 <h3 id="&#x5728;rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;">&#x5728;Rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;</h3>
 <ul>
-<li>Rokid.handler(event,contxt,callback)&#xFF1A;&#x7528;&#x4E8E;&#x8C03;&#x7528;Rokid-sdk&#x3002;</li>
-<li>Rokid.sync_requret(method,url,options)&#xFF1A;&#x540C;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x628A;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x901A;&#x8FC7;Rokid.resHandler( )&#x8FDB;&#x884C;buffer&#x5904;&#x7406;&#x3002;</li>
-<li>Rokid.resHandler(content):buffer&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x7ECF;&#x8FC7;&#x7B2C;&#x4E09;&#x65B9;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x6B64;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x518D;&#x63D0;&#x4EA4;&quot;:tts&quot;&#x3002;</li>
+<li>Rokid.handler(event,contxt,callback):&#x7528;&#x4E8E;&#x8C03;&#x7528;Rokid-sdk&#x3002;</li>
+<li>Rokid.resHandler(content):buffer&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x901A;&#x8FC7;Rokid.sync_request&#x8BF7;&#x6C42;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x6B64;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x518D;&#x63D0;&#x4EA4;&quot;:tts&quot;&#x6216;&quot;:media&quot;&#x3002;</li>
+<li>Rokid.sync_request(method,url,options):&#x540C;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x628A;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x901A;&#x8FC7;Rokid.resHandler( )&#x8FDB;&#x884C;buffer&#x5904;&#x7406;&#x3002;</li>
+<li>Rokid.request(options,callback):&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x3002;</li>
 <li>Rokid.param:NLP&#x5904;&#x7406;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x5728;&#x5176;&#x4E2D;&#x83B7;&#x53D6;intent&#xFF0C;slot&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
+</ul>
+<h3 id="&#x5173;&#x4E8E;&#x65E5;&#x5FD7;">&#x5173;&#x4E8E;&#x65E5;&#x5FD7;</h3>
+<ul>
+<li>&#x5728;&#x5E94;&#x7528;&#x811A;&#x672C;&#x4E2D;&#x53EF;&#x8C03;&#x7528;console.log( )&#x8F93;&#x51FA;&#x4F60;&#x60F3;&#x8981;&#x770B;&#x7684;&#x65E5;&#x5FD7;&#x3002;</li>
+<li>&#x987B;&#x4FDD;&#x8BC1;&#x5728;&#x201C;&#x547D;&#x4E2D;&#x8BED;&#x97F3;&#x6307;&#x4EE4;&#x201D;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x53EF;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#x3002;</li>
+<li>&#x6B64;&#x65E5;&#x5FD7;&#x4EC5;&#x662F;&#x5E94;&#x7528;&#x811A;&#x672C;&#x6267;&#x884C;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x5176;&#x4ED6;&#x94FE;&#x8DEF;&#x7684;&#x65E5;&#x5FD7;&#x3002;</li>
+<li>&#x5C3D;&#x91CF;&#x5728;&#x811A;&#x672C;&#x4E2D;&#x91C7;&#x7528;try-catch&#x4E2D;&#x8C03;&#x7528;callback&#x4F20;&#x56DE;&#x72B6;&#x6001;&#xFF0C;&#x8BE6;&#x7EC6;&#x53C2;&#x89C1;&#x672C;&#x6587;sample&#x3002;</li>
 </ul>
 <h3 id="sample">Sample</h3>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> data = [
@@ -709,33 +753,67 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
 
 <span class="hljs-keyword">var</span> handlers = {
     <span class="hljs-string">&apos;LaunchRequest&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x5B8C;&#x6210;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;callback</span>
         <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;GetNewFactIntent&apos;</span>);
     },
     <span class="hljs-string">&apos;GetNewFactIntent&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> factArr = data;
-        <span class="hljs-keyword">var</span> factIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * factArr.length);
-        <span class="hljs-keyword">var</span> randomFact = factArr[factIndex];
-        <span class="hljs-keyword">var</span> speechOutput = randomFact;
-        <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, {tts:speechOutput})
+        <span class="hljs-keyword">try</span>{
+            <span class="hljs-keyword">var</span> factArr = data;
+            <span class="hljs-keyword">var</span> factIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * factArr.length);
+            <span class="hljs-keyword">var</span> randomFact = factArr[factIndex];
+            <span class="hljs-keyword">var</span> speechOutput = randomFact;
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, {tts:speechOutput})
+            <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
+        }<span class="hljs-keyword">catch</span>(error){
+            <span class="hljs-keyword">this</span>.callback(error);
+        }
     },
-    <span class="hljs-string">&apos;NewsRequest&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        result = Rokid.sync_request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;https://www.toutiao.com/hot_words/&apos;</span>);
-        result = Rokid.resHandler(result); 
-        <span class="hljs-keyword">var</span> resStr = <span class="hljs-string">&apos;&apos;</span>;
-        result.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
-            resStr += item + <span class="hljs-string">&apos;,&apos;</span>
-        })
-        <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, { tts: resStr });
+    <span class="hljs-string">&apos;sync_NewsRequest&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//&#x540C;&#x6B65;&#x8BF7;&#x6C42;</span>
+        <span class="hljs-keyword">try</span>{
+            result = Rokid.sync_request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;https://www.toutiao.com/hot_words/&apos;</span>);
+            <span class="hljs-comment">//buffer&#x5904;&#x7406;</span>
+            result = Rokid.resHandler(result); 
+            <span class="hljs-keyword">var</span> resStr = <span class="hljs-string">&apos;&apos;</span>;
+            result.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+                resStr += item + <span class="hljs-string">&apos;,&apos;</span>
+            })
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, { tts: resStr });
+            <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
+        }<span class="hljs-keyword">catch</span>(error){
+            <span class="hljs-keyword">this</span>.callback(error);
+        }
+    },
+    <span class="hljs-string">&apos;ansync_NewsRequest&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x6CE8;&#x610F;this&#x6307;&#x5411;&#x95EE;&#x9898;</span>
+        <span class="hljs-keyword">var</span> ttsRes = <span class="hljs-string">&apos;&apos;</span>, self = <span class="hljs-keyword">this</span>;
+        Rokid.request({
+            method: <span class="hljs-string">&apos;GET&apos;</span>,
+            url: <span class="hljs-string">&apos;https://www.toutiao.com/hot_words/&apos;</span>,
+            headers:{
+                <span class="hljs-string">&apos;User-Agent&apos;</span>: <span class="hljs-string">&apos;request&apos;</span>
+            }
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, response, body</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                self.callback(error);
+            };
+            <span class="hljs-built_in">JSON</span>.parse(body).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+                ttsRes += item + <span class="hljs-string">&apos;,&apos;</span>
+            })
+            self.emit(<span class="hljs-string">&apos;:tts&apos;</span>, { tts: ttsRes });
+            self.callback(<span class="hljs-literal">null</span>);
+        });
     },
     <span class="hljs-string">&apos;MediaRequest&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url: <span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> });
+        <span class="hljs-keyword">try</span>{
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url: <span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> });
+            <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
+        }<span class="hljs-keyword">catch</span>(error){
+            <span class="hljs-keyword">this</span>.callback(error);
+        }
     }
 };
 </code></pre>
-<h2 id="&#x652F;&#x6301;">&#x652F;&#x6301;</h2>
-<ul>
-<li><a href="https://developer-forum.rokid.com/" target="_blank">Rokid&#x8BA8;&#x8BBA;&#x533A;</a></li>
-</ul>
 
                                 
                                 </section>
@@ -779,7 +857,7 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-06-06T06:05:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T13:05:44.110Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-06-16T09:11:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-16T09:12:21.255Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
