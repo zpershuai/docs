@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Rokid 客户端 SDK 文档 · GitBook</title>
+        <title>拦截器接口文档 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="siren-api.html" />
+    <link rel="next" href="openvoice-api.html" />
     
     
-    <link rel="prev" href="openvoice-api.html" />
+    <link rel="prev" href="cloud-app-development-protocol_cn.html" />
     
 
     </head>
@@ -306,7 +306,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="rokid-interceptor.html">
+        <li class="chapter active" data-level="6.2" data-path="rokid-interceptor.html">
             
                 <a href="rokid-interceptor.html">
             
@@ -332,7 +332,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6.4" data-path="rokid-client-sdk-doc.html">
+        <li class="chapter " data-level="6.4" data-path="rokid-client-sdk-doc.html">
             
                 <a href="rokid-client-sdk-doc.html">
             
@@ -487,7 +487,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Rokid 客户端 SDK 文档</a>
+        <a href=".." >拦截器接口文档</a>
     </h1>
 </div>
 
@@ -502,204 +502,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="tts&#x63A5;&#x53E3;&#x5B9A;&#x4E49;">Tts&#x63A5;&#x53E3;&#x5B9A;&#x4E49;</h2>
-<h3 id="&#x8C03;&#x7528;&#x63A5;&#x53E3;">&#x8C03;&#x7528;&#x63A5;&#x53E3;</h3>
-<pre><code>bool prepare(const char* config_file);
-
-void release();
-
-bool prepared();
-
-int speak(const char* content, TtsCallback* cb);
-
-void stop(int id);
-
-// &apos;key&apos;: declaimer        &apos;value&apos;:
-//        codec            &apos;value&apos;: opu2  (default)
-//                                  opu
-//                                  pcm
-void config(const char* key, const char* value);
-</code></pre><h3 id="&#x56DE;&#x8C03;&#x63A5;&#x53E3;">&#x56DE;&#x8C03;&#x63A5;&#x53E3;</h3>
-<pre><code>virtual void onStart(int id) = 0;
-
-virtual void onText(int id, const char* text) = 0;
-
-virtual void onVoice(int id, const unsigned char* data, int length) = 0;
-
-virtual void onStop(int id) = 0;
-
-virtual void onComplete(int id) = 0;
-
-virtual void onError(int id, int err) = 0;
-</code></pre><h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
-<pre><code>class DemoCallback : public TtsCallback {
-public:
-    void onStart(int32_t id) {
-        ...
-    }
-
-    void onData(int32_t id, const uint8_t* data, uint32_t length) {
-        ...
-    }
-
-    ...
-};
-
-Tts tts;
-DemoCallback cb;
-// &#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;
-tts.config(&quot;server_address&quot;, &quot;apigw.open.rokid.com:443&quot;);
-// &#x914D;&#x7F6E;ssl cert&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(sdk&#x6E90;&#x7801;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;roots.pem)
-tts.config(&quot;ssl_roots_pem&quot;, &quot;/system/etc/roots.pem&quot;);
-// &#x914D;&#x7F6E;&#x8BED;&#x97F3;&#x670D;&#x52A1;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;
-// key, secret, device_type_id&#x9700;&#x8981;&#x7533;&#x8BF7;
-// device_id&#x5373;&#x8BBE;&#x5907;&#x5E8F;&#x5217;&#x53F7;&#xFF0C;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x7528;&#x5B83;&#x533A;&#x5206;&#x81EA;&#x5DF1;&#x7684;&#x8BBE;&#x5907;
-tts.config(&quot;key&quot;, &quot;your_rokid_key&quot;);
-tts.config(&quot;device_type_id&quot;, &quot;your_device_type_id&quot;);
-tts.config(&quot;secret&quot;, &quot;your_secret&quot;);
-tts.config(&quot;device_id&quot;, &quot;your_device_id&quot;);
-// api&#x7248;&#x672C;&#x53F7;
-tts.config(&quot;api_version&quot;, &quot;1&quot;);
-if (!tts.prepare()) {
-    log(&quot;tts prepare failed&quot;);
-    return;
-}
-// &apos;cb&apos; &#x56DE;&#x8C03;&#x4F1A;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;
-int32_t id = tts.speak(&quot;&#x4F60;&#x597D;&quot;, cb);
-...
-...
-// quit tts
-// &apos;release&apos; &#x963B;&#x585E;&#xFF0C;&#x76F4;&#x81F3;&#x6240;&#x6709;tts&#x521B;&#x5EFA;&#x7684;&#x7EBF;&#x7A0B;&#x9000;&#x51FA;
-tts.release();
-</code></pre><h2 id="speech&#x63A5;&#x53E3;&#x5B9A;&#x4E49;">speech&#x63A5;&#x53E3;&#x5B9A;&#x4E49;</h2>
-<pre><code>struct SpeechResult {
-    int32_t id;
-    uint32_t err;
-    std::string asr;
-    std::string nlp;
-    std::string action;
-};
-
-class Speech {
-public:
-    virtual bool prepare(const char* config_file = NULL) = 0;
-
-    virtual void release() = 0;
-
-    virtual int32_t put_text(const char* text) = 0;
-
-    virtual int32_t start_voice() = 0;
-
-    virtual void put_voice(int32_t id, const uint8_t* data, uint32_t length) = 0;
-
-    virtual void end_voice(int32_t id) = 0;
-
-    virtual void cancel(int32_t id) = 0;
-
-    // poll speech results
-    // block current thread if no result available
-    // if Speech.release() invoked, poll() will return -1
-    //
-    // return value: 0  speech result
-    //               1  stream result start
-    //               2  stream result end
-    //               3  speech cancelled
-    //               4  speech occurs error, see SpeechResult.err
-    //               -1  speech sdk released
-    virtual int32_t poll(SpeechResult&amp; res) = 0;
-
-    virtual void config(const char* key, const char* value) = 0;
-};
-
-Speech* new_speech();
-
-void delete_speech(Speech* speech);
-</code></pre><p>&#x793A;&#x4F8B;</p>
-<pre><code>Speech* speech = rokid::speech::new_speech();
-// &#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x540C;tts&#x793A;&#x4F8B;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x5217;&#x51FA;
-// speech-&gt;config(......);
-if (!speech-&gt;prepare()) {
-    log(&quot;speech prepare failed&quot;);
-    rokid::speech::delete_speech(speech);
-    return;
-}
-
-... create callback thread and run ...
-
-
-int32_t id1 = speech-&gt;put_text(&quot;&#x4F60;&#x597D;&quot;);
-int32_t id2 = speech-&gt;start_voice();
-speech-&gt;put_voice(id2, voice_data, data_length);
-speech-&gt;put_voice(id2, more_voice_data, data_length);
-...
-speech-&gt;end_voice();
-...
-...
-speech-&gt;release();
-callback_thread.join();
-rokid::open::delete_speech(speech);
-
-
-// callback thread
-SpeechResult result;
-int32_t r;
-while (true) {
-    r = speech-&gt;poll(result);
-    // speech quit
-    if (r &lt; 0)
-        break;
-    ... handler speech result ...
-}
-</code></pre><h2 id="asr&#x63A5;&#x53E3;&#x5B9A;&#x4E49;">asr&#x63A5;&#x53E3;&#x5B9A;&#x4E49;</h2>
-<h3 id="&#x8C03;&#x7528;&#x63A5;&#x53E3;">&#x8C03;&#x7528;&#x63A5;&#x53E3;</h3>
-<pre><code>bool prepare();
-
-bool prepared();
-
-void release();
-
-int start(AsrCallback* cb);
-
-void voice(int id, const unsigned char* data, int length);
-
-void end(int id);
-
-void cancel(int id);
-
-void config(const char* key, const char* value);
-</code></pre><h3 id="&#x56DE;&#x8C03;&#x63A5;&#x53E3;">&#x56DE;&#x8C03;&#x63A5;&#x53E3;</h3>
-<pre><code>virtual void onStart(int id) = 0;
-
-virtual void onData(int id, const char* text) = 0;
-
-virtual void onStop(int id) = 0;
-
-virtual void onComplete(int id) = 0;
-
-virtual void onError(int id, int err) = 0;
-</code></pre><h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
-<p>&#x4E0E;tts&#x63A5;&#x53E3;&#x7528;&#x6CD5;&#x76F8;&#x4F3C;</p>
-<h2 id="nlp&#x63A5;&#x53E3;&#x5B9A;&#x4E49;">nlp&#x63A5;&#x53E3;&#x5B9A;&#x4E49;</h2>
-<h3 id="&#x8C03;&#x7528;&#x63A5;&#x53E3;">&#x8C03;&#x7528;&#x63A5;&#x53E3;</h3>
-<pre><code>bool prepare();
-
-bool prepared();
-
-void release();
-
-int request(const char* asr, NlpCallback* cb);
-
-void cancel(int32_t id);
-
-void config(const char* key, const char* value);
-</code></pre><h3 id="&#x56DE;&#x8C03;&#x63A5;&#x53E3;">&#x56DE;&#x8C03;&#x63A5;&#x53E3;</h3>
-<pre><code>virtual void onNlp(int id, const char* nlp) = 0;
-
-virtual void onStop(int id) = 0;
-
-virtual void onError(int id, int err) = 0;
-</code></pre><h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
-<p>&#x4E0E;tts&#x63A5;&#x53E3;&#x7528;&#x6CD5;&#x76F8;&#x4F3C;</p>
+                                <h1 id="&#x62E6;&#x622A;&#x5668;&#x63A5;&#x53E3;&#x6587;&#x6863;">&#x62E6;&#x622A;&#x5668;&#x63A5;&#x53E3;&#x6587;&#x6863;</h1>
+<p>&#x8BED;&#x4E49;&#x7406;&#x89E3;&#xFF08;NLP&#xFF09;&#x7684;&#x62E6;&#x622A;&#x5668;&#xFF08;intercepotr&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#x5F00;&#x53D1;&#x8005;&#x5728;&#x8FDB;&#x5165;&#x6211;&#x4EEC;NLP&#x5339;&#x914D;&#x4E4B;&#x524D;&#x6216;&#x8005;&#x662F;asr&#x7ED3;&#x679C;&#x5728;&#x82E5;&#x742A;&#x7684;NLP&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#x7ED3;&#x679C;&#x4E3A;&#x7A7A;&#x65F6;&#x5C06;&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x62E6;&#x622A;&#xFF0C;&#x62E6;&#x622A;&#x5230;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x7684;https&#x62E6;&#x622A;&#x5668;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x662F;&#x6574;&#x4E2A;&#x8BED;&#x97F3;&#x7684;&#x540E;&#x7AEF;&#x5904;&#x7406;&#x6D41;&#x7A0B;&#x56FE;&#xFF1A;
+<img src="images/interceptor.jpg" alt="intercepto"></p>
+<blockquote>
+<p>&#x56FE;&#x4E2D;&#x7684;&#x300C;Thirdparty Function Service&#x300D;&#x5373;&#x4E3A;https&#x62E6;&#x622A;&#x5668;</p>
+</blockquote>
+<h2 id="nlp-interceptor">NLP Interceptor</h2>
+<ul>
+<li>Request&#x65B9;&#x5F0F;: POST</li>
+<li>Request&#x53C2;&#x6570;:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;&#x540D;</th>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">version</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x63A5;&#x53E3;&#x7248;&#x672C;&#x53F7;</td>
+</tr>
+<tr>
+<td style="text-align:left">account_id</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">account id,&#x5E73;&#x53F0;&#x7BA1;&#x7406;&#x540E;&#x53F0;&#x83B7;&#x53D6;</td>
+</tr>
+<tr>
+<td style="text-align:left">device_type_id</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x8BBE;&#x5907;&#x7C7B;&#x578B;ID</td>
+</tr>
+<tr>
+<td style="text-align:left">device_id</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x8BBE;&#x5907;ID</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x5F85;&#x89E3;&#x6790;&#x8BED;&#x53E5;</td>
+</tr>
+<tr>
+<td style="text-align:left">language</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x8BED;&#x8A00;</td>
+</tr>
+<tr>
+<td style="text-align:left">stack</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">&#x5F53;&#x524D;app</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Response&#x53C2;&#x6570;:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;&#x540D;</th>
+<th style="text-align:left">&#x7C7B;&#x578B;</th>
+<th style="text-align:left">&#x63CF;&#x8FF0;</th>
+<th style="text-align:left">&#x9ED8;&#x8BA4;&#x503C;</th>
+<th style="text-align:left">&#x5FC5;&#x586B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">app_id</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">skill id</td>
+<td style="text-align:left">&#x65E0;</td>
+<td style="text-align:left">&#x662F;</td>
+</tr>
+<tr>
+<td style="text-align:left">intent</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">intent</td>
+<td style="text-align:left">&#x65E0;</td>
+<td style="text-align:left">&#x5426;</td>
+</tr>
+<tr>
+<td style="text-align:left">slots</td>
+<td style="text-align:left">object</td>
+<td style="text-align:left">slots</td>
+<td style="text-align:left">&#x65E0;</td>
+<td style="text-align:left">&#x5426;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -727,12 +624,12 @@ virtual void onError(int id, int err) = 0;
 
             
                 
-                <a href="openvoice-api.html" class="navigation navigation-prev " aria-label="Previous page: Rokid 接口文档">
+                <a href="cloud-app-development-protocol_cn.html" class="navigation navigation-prev " aria-label="Previous page: Rokid 技能协议文档">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="siren-api.html" class="navigation navigation-next " aria-label="Next page: Rokid 前端降噪模块 API文档">
+                <a href="openvoice-api.html" class="navigation navigation-next " aria-label="Next page: Rokid 接口文档">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -743,7 +640,7 @@ virtual void onError(int id, int err) = 0;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid 客户端 SDK 文档","level":"6.4","depth":1,"next":{"title":"Rokid 前端降噪模块 API文档","level":"6.5","depth":1,"path":"3-ApiReference/siren-api.md","ref":"3-ApiReference/siren-api.md","articles":[]},"previous":{"title":"Rokid 接口文档","level":"6.3","depth":1,"path":"3-ApiReference/openvoice-api.md","ref":"3-ApiReference/openvoice-api.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/rokid-client-sdk-doc.md","mtime":"2017-06-17T14:05:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T14:35:48.639Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"拦截器接口文档","level":"6.2","depth":1,"next":{"title":"Rokid 接口文档","level":"6.3","depth":1,"path":"3-ApiReference/openvoice-api.md","ref":"3-ApiReference/openvoice-api.md","articles":[]},"previous":{"title":"Rokid 技能协议文档","level":"6.1","depth":1,"path":"3-ApiReference/cloud-app-development-protocol_cn.md","ref":"3-ApiReference/cloud-app-development-protocol_cn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/rokid-interceptor.md","mtime":"2017-06-17T14:28:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T14:35:48.639Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
