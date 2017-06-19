@@ -1040,17 +1040,14 @@
             &quot;shouldEndSession&quot;: true, 
 
             &quot;voice&quot;: {
-                &quot;needEventCallback&quot;: true,
-                &quot;behaviour&quot;: &quot;APPEND/REPLACE_ALL/REPLACE_APPEND/CLEAR&quot;,
+                &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
                 &quot;item&quot;: {
                     &quot;tts&quot;: &quot;tts content&quot;
                 }
             },
 
             &quot;media&quot;: {
-                &quot;needEventCallback&quot;: true,
-                &quot;action&quot;: &quot;PLAY/PAUSE/RESUME&quot;,
-                &quot;behaviour&quot;: &quot;APPEND/REPLACE_ALL/REPLACE_APPEND/CLEAR&quot;,
+                &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
                 &quot;item&quot;: {
                     &quot;token&quot;: &quot;xxxx&quot;,
                     &quot;type&quot;: &quot;AUDIO/VIDEO&quot;,
@@ -1138,8 +1135,7 @@
 <h5 id="321-voice">3.2.1 Voice</h5>
 <p><em>Voice</em> &#x5B9A;&#x4E49;&#x4E86; <em>CloudApp</em> &#x8FD4;&#x56DE;&#x7684;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x5185;&#x5BB9;&#x3002;&#x5177;&#x4F53;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code>&quot;voice&quot;: {
-    &quot;needEventCallback&quot;: true,
-    &quot;behaviour&quot;: &quot;APPEND/REPLACE_ALL/REPLACE_APPEND/CLEAR&quot;,
+    &quot;action&quot;:&quot;PLAY/PAUSE/RESUME/STOP&quot;,
     &quot;item&quot;: {}
 }
 </code></pre><table>
@@ -1152,14 +1148,9 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">needEventCallback</td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:left"><em>true / false</em></td>
-</tr>
-<tr>
-<td style="text-align:center">behaviour</td>
+<td style="text-align:center">action</td>
 <td style="text-align:center">string</td>
-<td style="text-align:left"><em>APPEND / REPLACE_ALL / REPLACE_APPEND / CLEAR</em></td>
+<td style="text-align:left"><em>PLAY / PAUSE / RESUME / STOP</em></td>
 </tr>
 <tr>
 <td style="text-align:center">item</td>
@@ -1169,17 +1160,8 @@
 </tbody>
 </table>
 <ul>
-<li><strong>needEventCallback</strong> - &#x8868;&#x793A; <em>CloudAppClient</em> &#x662F;&#x5426;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x6240;&#x6709; <em>EventRequest</em> &#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;&#x5982;&#x679C; <em>needEventCallback</em> &#x4E3A; <em>true</em>&#xFF0C; <em>CloudAppClient</em> &#x5728;action&#x6267;&#x884C;&#x5B8C;&#x540E;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x9000;&#x51FA;&#xFF0C;&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85; <em>EventRequest</em> &#x7684;&#x8FD4;&#x56DE;&#xFF1B;&#x5F53; <em>needEventCallback</em> &#x4E3A; <em>false</em>&#xFF0C; <em>CloudAppClient</em> &#x5728;action&#x6267;&#x884C;&#x5B8C;&#x540E;&#xFF08;&#x5305;&#x62EC;&#x961F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x7684;action)&#xFF0C;&#x4F1A;&#x7ACB;&#x5373;&#x9000;&#x51FA;&#xFF0C;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85; <em>EventRequest</em> &#x7684;&#x8FD4;&#x56DE;&#x3002; </li>
-<li><p><strong>behaviour</strong> - &#x8868;&#x793A; <code>voice</code> &#x7684;&#x961F;&#x5217;&#x6267;&#x884C;&#x7B56;&#x7565;&#x3002;&#x76EE;&#x524D;&#x6709;&#x5982;&#x4E0B;&#x56DB;&#x79CD; <code>behaviours</code>&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C; <em>behaviour</em> &#x5728;&#x8FD4;&#x56DE;&#x4E2D;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#xFF0C;<strong>REPLACE_ALL</strong> &#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7B56;&#x7565;&#x6267;&#x884C;&#x3002;</p>
-<ul>
-<li><strong>APPEND</strong> - &#x4EC5;&#x5C06;&#x5F53;&#x524D;voice&#x52A0;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5BF9;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;voice&#x548C;&#x961F;&#x5217;&#x5DF2;&#x6709;&#x7684;voice&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;&#x3002;</li>
-<li><strong>REPLACE_ALL</strong> - &#x4F1A;&#x5C06;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;voice&#x505C;&#x6B62;&#xFF0C;&#x5C06;&#x961F;&#x5217;&#x4E2D;&#x5DF2;&#x6709;&#x7684;voice&#x6E05;&#x9664;&#xFF0C;&#x518D;&#x5C06;&#x5F53;&#x524D;&#x65B0;&#x7684;voice&#x52A0;&#x5165;&#x961F;&#x5217;&#x5E76;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x3002;</li>
-<li><strong>REPLACE_APPEND</strong> - &#x4F1A;&#x5C06;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;voice&#x505C;&#x6B62;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x6E05;&#x9664;&#x961F;&#x5217;&#x4E2D;&#x5DF2;&#x6709;&#x7684;voice&#xFF0C;&#x5C06;&#x65B0;&#x7684;voice&#x52A0;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5E76;&#x6267;&#x884C;&#x961F;&#x5217;&#x3002;</li>
-<li><strong>CLEAR</strong> - &#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#x5F53;&#x524D;&#x6240;&#x6709;&#x7684;voice&#x4EFB;&#x52A1;&#xFF0C;&#x6B64;&#x7B56;&#x7565;&#x7B49;&#x540C;&#x4E8E;&#x9000;&#x51FA;voice&#xFF0C;&#x6B64;&#x65F6;voice&#x4E2D;&#x7684;item&#x5185;&#x5BB9;&#x5C06;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</li>
-</ul>
-</li>
-<li><p><strong>item</strong> - &#x5B9A;&#x4E49;&#x4E86;voice&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x5C06;&#x4F1A;&#x5728; <em>3.2.1.1</em> &#x4E2D;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;.</p>
-</li>
+<li><strong>action</strong> - &#x8868;&#x793A;&#x5BF9;&#x5F53;&#x524D;voice&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#xFF08;PLAY)&#x3001;&#x6682;&#x505C;&#xFF08;PAUSE&#xFF09;&#x3001;&#x7EE7;&#x7EED;&#x64AD;&#x653E;&#xFF08;RESUME&#xFF09;&#x548C;&#x505C;&#x6B62;&#xFF08;STOP&#xFF09;&#xFF08;&#x5177;&#x4F53;Action&#x884C;&#x4E3A;&#x53C2;&#x7167;Media&#x7684;Action&#x884C;&#x4E3A;&#xFF0C;&#x4F46;&#x662F;&#x76EE;&#x524D;&#x6682;&#x672A;&#x5B9E;&#x73B0;&#xFF0C;<strong>PAUSE</strong>&#x4EE5;&#x53CA;<strong>RESUME</strong>&#x64CD;&#x4F5C;&#xFF09;;</li>
+<li><strong>item</strong> - &#x5B9A;&#x4E49;&#x4E86;voice&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x5C06;&#x4F1A;&#x5728; <em>3.2.1.1</em> &#x4E2D;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;.</li>
 </ul>
 <h6 id="3211-item">3.2.1.1 Item</h6>
 <p>Item&#x5B9A;&#x4E49;&#x4E86;voice&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;</p>
@@ -1208,9 +1190,7 @@
 <h5 id="322-media">3.2.2 Media</h5>
 <p>Media &#x7528;&#x6765;&#x64AD;&#x653E;CloudApp&#x8FD4;&#x56DE;&#x7684;&#x6D41;&#x5A92;&#x4F53;&#x5185;&#x5BB9;&#x3002;&#x6709; <em>audio</em> &#x548C; <em>video</em> &#x4E24;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x76EE;&#x524D;&#x7B2C;&#x4E00;&#x7248;&#x6682;&#x65F6;&#x53EA;&#x5BF9; <em>audio</em> &#x4F5C;&#x4E86;&#x652F;&#x6301;&#xFF0C;&#x540E;&#x7EED;&#x4F1A;&#x652F;&#x6301; <em>video</em>&#x3002;</p>
 <pre><code>&quot;media&quot;: {
-    &quot;needEventCallback&quot;: true,
-    &quot;action&quot;: &quot;PLAY/PAUSE/RESUME&quot;,
-    &quot;behaviour&quot;: &quot;APPEND/REPLACE_ALL/REPLACE_APPEND/CLEAR&quot;,
+    &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
     &quot;item&quot;: {}
 }
 </code></pre><table>
@@ -1223,19 +1203,9 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">needEventCallback</td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:left"><em>true / false</em></td>
-</tr>
-<tr>
 <td style="text-align:center">action</td>
 <td style="text-align:center">string</td>
-<td style="text-align:left"><em>PLAY / PAUSE / RESUME</em></td>
-</tr>
-<tr>
-<td style="text-align:center">behaviour</td>
-<td style="text-align:center">string</td>
-<td style="text-align:left"><em>APPEND / REPLACE_ALL / REPLACE_APPEND / CLEAR</em></td>
+<td style="text-align:left"><em>PLAY / PAUSE / RESUME / STOP</em></td>
 </tr>
 <tr>
 <td style="text-align:center">item</td>
@@ -1245,9 +1215,13 @@
 </tbody>
 </table>
 <ul>
-<li><strong>needEventCallback</strong> - &#x4E0E; <em>Voice</em> &#x4E2D;&#x7684;&#x5B9A;&#x4E49;&#x76F8;&#x540C;&#x3002;</li>
-<li><strong>action</strong> - &#x5B9A;&#x4E49;&#x4E86;&#x5BF9;MediaPlayer&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x652F;&#x6301; <strong>3</strong> &#x79CD;&#x64CD;&#x4F5C;&#xFF1A;<strong>PLAY</strong>&#xFF0C; <strong>PAUSE</strong> &#x548C; <strong>RESUME</strong>&#x3002;</li>
-<li><strong>behaviour</strong> -&#x4E0E; <em>Voice</em> &#x4E2D;&#x7684;&#x5B9A;&#x4E49;&#x76F8;&#x540C;&#x3002;</li>
+<li><strong>action</strong> - &#x5B9A;&#x4E49;&#x4E86;&#x5BF9;MediaPlayer&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x652F;&#x6301; <strong>4</strong> &#x79CD;&#x64CD;&#x4F5C;&#xFF1A;<strong>PLAY</strong>&#xFF0C; <strong>PAUSE</strong> &#xFF0C; <strong>RESUME</strong> &#x548C; <strong>STOP</strong>&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;<strong>PLAY</strong>&#x63A5;&#x53D7;<strong>item</strong>&#x6570;&#x636E;&#x3002;<ul>
+<li><strong>PLAY</strong>&#xFF1A;&#x5982;&#x679C;&#x6709;<strong>item</strong>&#x6570;&#x636E;&#xFF0C;&#x5219;&#x6309;&#x7167;&#x6700;&#x65B0;&#x7684;<strong>item</strong>&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x64AD;&#x653E;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;<strong>item</strong>&#x6570;&#x636E;&#xFF0C;&#x4E14;&#x539F;&#x6765;&#x6709;&#x5728;&#x64AD;&#x653E;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5219;&#x4ECE;&#x539F;&#x6765;&#x64AD;&#x653E;&#x7684;&#x5185;&#x5BB9;&#x5F00;&#x59CB;&#x64AD;&#x653E;</li>
+<li><strong>PAUSE</strong>&#xFF1A;&#x6682;&#x505C;&#x5F53;&#x524D;&#x64AD;&#x653E;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x64AD;&#x653E;&#x7684;&#x8FDB;&#x5EA6;&#x7B49;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;&#xFF08;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;<strong>RESUME</strong>&#x6307;&#x4EE4;&#x76F4;&#x63A5;&#x6062;&#x590D;&#x539F;&#x6765;&#x7684;&#x64AD;&#x653E;&#x72B6;&#x6001;&#xFF09;</li>
+<li><strong>RESUME</strong>&#xFF1A;&#x7EE7;&#x7EED;&#x64AD;&#x653E;&#xFF08;&#x4ECE;&#x539F;&#x6765;&#x7684;&#x64AD;&#x653E;&#x8FDB;&#x5EA6;&#x64AD;&#x653E;&#xFF09;</li>
+<li><strong>STOP</strong>&#xFF1A;&#x505C;&#x6B62;&#x64AD;&#x653E;&#xFF0C;&#x5E76;&#x4E14;&#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x7684;&#x64AD;&#x653E;&#x8FDB;&#x5EA6;&#xFF0C;&#x4F46;&#x662F;&#x64AD;&#x653E;&#x5185;&#x5BB9;&#x4E0D;&#x6E05;</li>
+</ul>
+</li>
 <li><strong>item</strong> - &#x5B9A;&#x4E49;&#x4E86;&#x5177;&#x4F53;&#x7684;&#x64AD;&#x653E;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</li>
 </ul>
 <h6 id="3221-item">3.2.2.1 Item</h6>
@@ -1338,7 +1312,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid 技能协议文档","level":"6.1","depth":1,"next":{"title":"拦截器接口文档","level":"6.2","depth":1,"path":"3-ApiReference/rokid-interceptor.md","ref":"3-ApiReference/rokid-interceptor.md","articles":[]},"previous":{"title":"Rokid SDK 接入指南","level":"5.2","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","ref":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/cloud-app-development-protocol_cn.md","mtime":"2017-06-17T14:36:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T15:36:33.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid 技能协议文档","level":"6.1","depth":1,"next":{"title":"拦截器接口文档","level":"6.2","depth":1,"path":"3-ApiReference/rokid-interceptor.md","ref":"3-ApiReference/rokid-interceptor.md","articles":[]},"previous":{"title":"Rokid SDK 接入指南","level":"5.2","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","ref":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/cloud-app-development-protocol_cn.md","mtime":"2017-06-19T08:35:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-19T08:38:11.411Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
