@@ -545,7 +545,7 @@
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> handlers = {
     <span class="hljs-string">&apos;HelloWorldSample&apos;</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">try</span>{
-            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>});
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>},{sessionKey:sessionValue});
             <span class="hljs-comment">//&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x65F6;callback</span>
             <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
         }<span class="hljs-keyword">catch</span>(error){
@@ -556,7 +556,7 @@
     <span class="hljs-string">&apos;MediaSample&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">try</span>{
             <span class="hljs-comment">//&#x6B63;&#x5E38;&#x5B8C;&#x6210;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x65F6;callback</span>
-            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> });
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> },{sessionKey:sessionValue});
         }<span class="hljs-keyword">catch</span>(error){
             <span class="hljs-comment">//&#x62A5;&#x9519;&#x65F6;callback&#x9519;&#x8BEF;</span>
             <span class="hljs-keyword">this</span>.callback(error)
@@ -565,9 +565,9 @@
 };
 </code></pre>
 <blockquote>
-<p>&#x5207;&#x8BB0;&#xFF1A;&#x4E3A;&#x987A;&#x5229;&#x4E14;&#x5FEB;&#x901F;&#x6267;&#x884C;&#x811A;&#x672C;&#xFF0C;&#x4E0A;&#x8FF0;&#x4E2D;this.callback&#x662F;&#x5728;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x6CE8;&#x610F;this&#x7684;&#x6307;&#x5411;&#xFF0C;&#x5982;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x5219;jsEngine&#x5C06;0.5s&#x8F6E;&#x8BE2;&#x4E00;&#x6B21;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x5207;&#x8BB0;&#xFF1A;&#x4E0A;&#x8FF0;&#x4E2D;this.callback&#x662F;&#x5728;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x6CE8;&#x610F;this&#x7684;&#x6307;&#x5411;&#x3002;&#x5982;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x5219;jsEngine&#x5C06;&#x8BEF;&#x8BA4;&#x4E3A;&#x811A;&#x672C;&#x672A;&#x6267;&#x884C;&#x5B8C;&#x5168;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;</p>
 </blockquote>
-<p>&#x5176;&#x4E2D;&quot;HelloWorldSample&quot;&#x4E0E;&quot;MediaSample&quot;&#x5BF9;&#x5E94;&#x4E8E;&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x4E2D;&#x7684;intent&#x3002;</p>
+<p>&#x5176;&#x4E2D;&quot;HelloWorldSample&quot;&#x4E0E;&quot;MediaSample&quot;&#x5BF9;&#x5E94;&#x4E8E;&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x4E2D;&#x7684;intent&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-javascript">{
     <span class="hljs-string">&quot;intents&quot;</span>: [
         {
@@ -588,177 +588,50 @@
 }
 </code></pre>
 <p>&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x7684;intent&#xFF0C;slot&#x7B49;request&#x4FE1;&#x606F;&#x53EF;&#x5728;Rokid.param&#xFF08;&#x4E0B;&#x6587;&#x6709;&#x4ECB;&#x7ECD;&#xFF09;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
-<ul>
-<li>&#x4E0A;&#x9762;&#x7684;&quot;:tts&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;tts&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;</li>
-</ul>
-<p>&#x5176;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;:</p>
-<pre><code class="lang-javascript"><span class="hljs-string">&apos;:tts&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
-
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isOverridden()) {
-        <span class="hljs-comment">//&#x7EDF;&#x4E00;&#x5728;&#x6267;&#x884C;emit&#x4E4B;&#x524D;&#x8BA1;&#x7B97;&#x76D1;&#x542C;&#x6570;</span>
-        <span class="hljs-keyword">return</span>
-      }
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> options.tts !== <span class="hljs-string">&apos;string&apos;</span>) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`emit(&quot;:tts&quot;)&#x65F6;&quot;tts&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;&#x4E14;&#x4E3A;string&#x7C7B;&#x578B;(&#x5F53;&#x524D;tts&#x7C7B;&#x578B;&#x4E3A;<span class="hljs-subst">${typeof options.tts}</span>)`</span>);
-        <span class="hljs-keyword">return</span>
-      }
-
-      <span class="hljs-keyword">this</span>.handler.response.response.action = buildSpeechletResponse({
-        outType: <span class="hljs-string">&apos;tts&apos;</span>,
-        version: <span class="hljs-keyword">this</span>.handler._event.version,
-        <span class="hljs-comment">//&#x5C01;&#x88C5;res&#x8F93;&#x51FA;</span>
-        type: options.type || <span class="hljs-string">&apos;NORMAL&apos;</span>,
-        form: options.form || <span class="hljs-string">&apos;cut&apos;</span>,
-        shouldEndSession: options.shouldEndSession || <span class="hljs-literal">true</span>,
-        needEventCallback: options.needEventCallback || <span class="hljs-literal">false</span>,
-        behaviour: options.behaviour || <span class="hljs-string">&apos;APPEND&apos;</span>,
-        tts: options.tts
-
-      })
-      <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:responseReady&apos;</span>)
-}
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>},{sessionKey:sessionValue})
 </code></pre>
-<h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">&#x5B57;&#x6BB5;</th>
-<th style="text-align:right">&#x7C7B;&#x578B;</th>
-<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">type</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">NORMAL</td>
-</tr>
-<tr>
-<td style="text-align:left">form</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">cut</td>
-</tr>
-<tr>
-<td style="text-align:left">shouldEndSession</td>
-<td style="text-align:right">boolean</td>
-<td style="text-align:center">true</td>
-</tr>
-<tr>
-<td style="text-align:left">needEventCallback</td>
-<td style="text-align:right">boolean</td>
-<td style="text-align:center">false</td>
-</tr>
-<tr>
-<td style="text-align:left">behaviour</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">APPEND</td>
-</tr>
-<tr>
-<td style="text-align:left">tts</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
-</tr>
-</tbody>
-</table>
 <ul>
-<li>&#x4E0A;&#x9762;&#x7684;&quot;:media&quot;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;media&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:media&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&quot;url&quot;&#x548C;&#x5C5E;&#x6027;&quot;itemType&quot;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;</li>
+<li>&#x4E0A;&#x8FF0;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&#x201C;tts&#x201D;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x4E14;&#x5176;&#x7C7B;&#x578B;&#x987B;&#x4E3A;string&#x6216;number&#xFF01;session&#x6839;&#x636E;&#x9700;&#x6C42;&#x9009;&#x62E9;&#x3002;<h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;</h3>
+<ul>
+<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
+| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
+| :-------- |--------:| :--: |
+| type | string |  NORMAL  |
+| form | string |  cut  |
+| shouldEndSession | boolean | true |
+| action | string | PLAY |
+| tts | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|</li>
+<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
+| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
+| :-------- |--------:| :--: |
+| sessionKey | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|
+| seesionValue | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|</li>
 </ul>
-<pre><code class="lang-javascript"><span class="hljs-string">&apos;:media&apos;</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isOverridden()) {
-        <span class="hljs-keyword">return</span>
-      }
-
-      <span class="hljs-keyword">if</span> (!options.itemType) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;itemType&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x987B;&#x4E3A;AUDIO&#x6216;VIDEO)&apos;</span>);
-        <span class="hljs-keyword">return</span>
-      }
-
-      <span class="hljs-keyword">if</span> (!options.url) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;emit(&quot;:media&quot;)&#x65F6;&quot;url&quot;&#x5B57;&#x6BB5;&#x5FC5;&#x586B;(&#x5F53;&#x524D;url&#x7C7B;&#x578B;&#x4E3A;${typeof options.url})&apos;</span>);
-        <span class="hljs-keyword">return</span>
-      }
-
-      <span class="hljs-keyword">this</span>.handler.response.response.action = buildSpeechletResponse({
-        outType: <span class="hljs-string">&apos;media&apos;</span>,
-        version: <span class="hljs-keyword">this</span>.handler._event.version,
-
-        type: options.type || <span class="hljs-string">&apos;NORMAL&apos;</span>,
-        form: options.form || <span class="hljs-string">&apos;cut&apos;</span>,
-        shouldEndSession: options.shouldEndSession || <span class="hljs-literal">true</span>,
-        needEventCallback: options.needEventCallback || <span class="hljs-literal">false</span>,
-        action: options.action || <span class="hljs-string">&apos;PLAY&apos;</span>,
-        behaviour: options.behaviour || <span class="hljs-string">&apos;APPEND&apos;</span>,
-        token: options.token || <span class="hljs-string">&apos;&apos;</span>,
-        itemType: options.itemType,
-        url: options.url,
-        offsetInMilliseconds: options.offsetInMilliseconds || <span class="hljs-number">0</span>
-      })
-      <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:responseReady&apos;</span>)
-}
+</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> },{sessionKey:sessionValue})
 </code></pre>
+<p>&#x4E0A;&#x8FF0; &#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;media&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:media&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&quot;url&quot;&#x548C;&#x5C5E;&#x6027;&quot;itemType&quot;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;session&#x6839;&#x636E;&#x9700;&#x6C42;&#x9009;&#x62E9;&#x3002;</p>
 <h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;media&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;media&#xFF09;</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">&#x5B57;&#x6BB5;</th>
-<th style="text-align:right">&#x7C7B;&#x578B;</th>
-<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">type</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">NORMAL</td>
-</tr>
-<tr>
-<td style="text-align:left">form</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">cut</td>
-</tr>
-<tr>
-<td style="text-align:left">shouldEndSession</td>
-<td style="text-align:right">boolean</td>
-<td style="text-align:center">true</td>
-</tr>
-<tr>
-<td style="text-align:left">needEventCallback</td>
-<td style="text-align:right">boolean</td>
-<td style="text-align:center">false</td>
-</tr>
-<tr>
-<td style="text-align:left">action</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">PLAY</td>
-</tr>
-<tr>
-<td style="text-align:left">behaviour</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">APPEND</td>
-</tr>
-<tr>
-<td style="text-align:left">token</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">&#x65E0;</td>
-</tr>
-<tr>
-<td style="text-align:left">itemType(&#x5BF9;&#x5E94;&#x6587;&#x6863;item&#x91CC;&#x7684;type)</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
-</tr>
-<tr>
-<td style="text-align:left">url</td>
-<td style="text-align:right">string</td>
-<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
-</tr>
-<tr>
-<td style="text-align:left">offsetInMilliseconds</td>
-<td style="text-align:right">number</td>
-<td style="text-align:center">0</td>
-</tr>
-</tbody>
-</table>
-<p>&#x5177;&#x4F53;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x53EF;&#x53C2;&#x89C1;&#xFF1A;<a href="../../3-ApiReference/cloud-app-development-protocol_cn.html#3-response">Rokid&#x6280;&#x80FD;Response&#x534F;&#x8BAE;</a></p>
+<ul>
+<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
+| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
+| :-------- |--------:| :--: |
+| type | string |  NORMAL  |
+| form | string |  cut  |
+| shouldEndSession | boolean | true |
+| action | string | PLAY |
+| token | string | &#x65E0; |
+| itemType(&#x5BF9;&#x5E94;&#x6587;&#x6863;item&#x91CC;&#x7684;type) | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|
+| url | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|
+| offsetInMilliseconds | number | 0 |</li>
+<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
+| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
+| :-------- |--------:| :--: |
+| sessionKey | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|
+| seesionValue | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x53EF;&#x53C2;&#x89C1;&#xFF1A;<a href="https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response" target="_blank">https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response</a></p>
 <h3 id="&#x5728;rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;">&#x5728;Rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;</h3>
 <ul>
 <li>Rokid.handler(event,contxt,callback):&#x7528;&#x4E8E;&#x8C03;&#x7528;Rokid-sdk&#x3002;</li>
@@ -806,7 +679,7 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
             <span class="hljs-keyword">var</span> factIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * factArr.length);
             <span class="hljs-keyword">var</span> randomFact = factArr[factIndex];
             <span class="hljs-keyword">var</span> speechOutput = randomFact;
-            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, {tts:speechOutput})
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>, {tts:speechOutput});
             <span class="hljs-keyword">this</span>.callback(<span class="hljs-literal">null</span>);
         }<span class="hljs-keyword">catch</span>(error){
             <span class="hljs-keyword">this</span>.callback(error);
@@ -840,10 +713,10 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
         }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, response, body</span>) </span>{
             <span class="hljs-keyword">if</span> (error) {
                 self.callback(error);
-            };
+            }
             <span class="hljs-built_in">JSON</span>.parse(body).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
-                ttsRes += item + <span class="hljs-string">&apos;,&apos;</span>
-            })
+                ttsRes += item + <span class="hljs-string">&apos;,&apos;</span>;
+            });
             self.emit(<span class="hljs-string">&apos;:tts&apos;</span>, { tts: ttsRes });
             self.callback(<span class="hljs-literal">null</span>);
         });
@@ -904,7 +777,7 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互设计指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-06-28T06:22:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-28T12:07:13.435Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互设计指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-06-28T13:01:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-28T13:04:24.340Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
