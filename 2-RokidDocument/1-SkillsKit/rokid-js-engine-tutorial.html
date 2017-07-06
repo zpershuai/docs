@@ -564,9 +564,8 @@
     }
 };
 </code></pre>
-<blockquote>
-<p>&#x5207;&#x8BB0;&#xFF1A;&#x4E0A;&#x8FF0;&#x4E2D;this.callback&#x662F;&#x5728;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x6CE8;&#x610F;this&#x7684;&#x6307;&#x5411;&#x3002;&#x5982;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x5219;jsEngine&#x5C06;&#x8BEF;&#x8BA4;&#x4E3A;&#x811A;&#x672C;&#x672A;&#x6267;&#x884C;&#x5B8C;&#x5168;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;</p>
-</blockquote>
+<h3 id="&#x5173;&#x4E8E;&#x8C03;&#x7528;callback">&#x5173;&#x4E8E;&#x8C03;&#x7528;callback</h3>
+<p><strong>&#x4E0A;&#x8FF0;&#x4E2D;this.callback&#x662F;&#x5728;&#x610F;&#x56FE;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x9700;&#x6CE8;&#x610F;this&#x7684;&#x6307;&#x5411;&#x3002;&#x5982;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x5219;jsEngine&#x5C06;&#x4F1A;&#x8BEF;&#x8BA4;&#x4E3A;&#x811A;&#x672C;&#x672A;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x800C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;</strong></p>
 <p>&#x5176;&#x4E2D;&quot;HelloWorldSample&quot;&#x4E0E;&quot;MediaSample&quot;&#x5BF9;&#x5E94;&#x4E8E;&quot;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&quot;&#x4E2D;&#x7684;intent&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-javascript">{
     <span class="hljs-string">&quot;intents&quot;</span>: [
@@ -591,46 +590,154 @@
 <pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:tts&apos;</span>,{tts:<span class="hljs-string">&apos;Hello World!&apos;</span>},{sessionKey:sessionValue})
 </code></pre>
 <ul>
-<li>&#x4E0A;&#x8FF0;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&#x201C;tts&#x201D;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x4E14;&#x5176;&#x7C7B;&#x578B;&#x987B;&#x4E3A;string&#x6216;number&#xFF01;session&#x6839;&#x636E;&#x9700;&#x6C42;&#x9009;&#x62E9;&#x3002;<h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;</h3>
+<li>&#x4E0A;&#x8FF0;&#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&#x201C;tts&#x201D;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:tts&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;tts&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x4E14;&#x5176;&#x7C7B;&#x578B;&#x987B;&#x4E3A;string&#x6216;number&#xFF01;session&#x6839;&#x636E;&#x9700;&#x6C42;&#x9009;&#x62E9;&#x3002;</li>
+</ul>
+<h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;tts&#xFF09;</h3>
 <ul>
-<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
-| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
-| :-------- |--------:| :--: |
-| type | string |  NORMAL  |
-| form | string |  cut  |
-| shouldEndSession | boolean | true |
-| action | string | PLAY |
-| tts | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|</li>
-<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
-| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
-| :-------- |--------:| :--: |
-| sessionKey | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|
-| seesionValue | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|</li>
+<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</li>
 </ul>
-</li>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:right">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">NORMAL</td>
+</tr>
+<tr>
+<td style="text-align:left">form</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">cut</td>
+</tr>
+<tr>
+<td style="text-align:left">shouldEndSession</td>
+<td style="text-align:right">boolean</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:left">action</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">PLAY</td>
+</tr>
+<tr>
+<td style="text-align:left">tts</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>this.emit(&quot;:tts&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:right">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sessionKey</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">seesionValue</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">&apos;:media&apos;</span>, { itemType: <span class="hljs-string">&apos;AUDIO&apos;</span>, url:<span class="hljs-string">&apos;s.rokidcdn.com/temp/rokid-ring.mp3&apos;</span> },{sessionKey:sessionValue})
 </code></pre>
 <p>&#x4E0A;&#x8FF0; &#x8BED;&#x6CD5;&#x662F;rokid-sdk&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&quot;media&quot;&#x54CD;&#x5E94;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#xFF1A;&#x4F20;&#x5165;&quot;:media&quot;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x4E2D;&quot;url&quot;&#x548C;&#x5C5E;&#x6027;&quot;itemType&quot;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF01;session&#x6839;&#x636E;&#x9700;&#x6C42;&#x9009;&#x62E9;&#x3002;</p>
 <h3 id="&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;media&#xFF09;">&#x5F00;&#x53D1;&#x8005;&#x76F8;&#x5173;&#x5B57;&#x6BB5;&#xFF08;media&#xFF09;</h3>
 <ul>
-<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
-| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
-| :-------- |--------:| :--: |
-| type | string |  NORMAL  |
-| form | string |  cut  |
-| shouldEndSession | boolean | true |
-| action | string | PLAY |
-| token | string | &#x65E0; |
-| itemType(&#x5BF9;&#x5E94;&#x6587;&#x6863;item&#x91CC;&#x7684;type) | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|
-| url | string | &#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;|
-| offsetInMilliseconds | number | 0 |</li>
-<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;
-| &#x5B57;&#x6BB5;       |   &#x7C7B;&#x578B; | &#x9ED8;&#x8BA4;&#x503C; |
-| :-------- |--------:| :--: |
-| sessionKey | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|
-| seesionValue | string | &#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;|</li>
+<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:right">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">NORMAL</td>
+</tr>
+<tr>
+<td style="text-align:left">form</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">cut</td>
+</tr>
+<tr>
+<td style="text-align:left">shouldEndSession</td>
+<td style="text-align:right">boolean</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:left">action</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">PLAY</td>
+</tr>
+<tr>
+<td style="text-align:left">token</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;</td>
+</tr>
+<tr>
+<td style="text-align:left">itemType(&#x5BF9;&#x5E94;&#x6587;&#x6863;item&#x91CC;&#x7684;type)</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">url</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x5FC5;&#x586B;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">offsetInMilliseconds</td>
+<td style="text-align:right">number</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>this.emit(&quot;:media&quot;,{},{})&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x5B57;&#x6BB5;</th>
+<th style="text-align:right">&#x7C7B;&#x578B;</th>
+<th style="text-align:center">&#x9ED8;&#x8BA4;&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sessionKey</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;</td>
+</tr>
+<tr>
+<td style="text-align:left">seesionValue</td>
+<td style="text-align:right">string</td>
+<td style="text-align:center">&#x65E0;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x586B;&#xFF09;</td>
+</tr>
+</tbody>
+</table>
 <p>&#x5177;&#x4F53;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x53EF;&#x53C2;&#x89C1;&#xFF1A;<a href="https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response" target="_blank">https://rokid.github.io/docs/3-ApiReference/cloud-app-development-protocol_cn.html#3-response</a></p>
 <h3 id="&#x5728;rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;">&#x5728;Rokid&#x5BF9;&#x8C61;&#x4E2D;&#x5C01;&#x88C5;&#x7684;&#x5DE5;&#x5177;</h3>
 <ul>
@@ -645,6 +752,13 @@
 </ul>
 </li>
 </ul>
+<h3 id="&#x5173;&#x4E8E;&#x8C03;&#x8BD5;">&#x5173;&#x4E8E;&#x8C03;&#x8BD5;</h3>
+<p>&#x5728;&#x201C;&#x914D;&#x7F6E;&#x201D;&#x9875;&#x91CC;&#xFF0C;&#x76EE;&#x524D;&#x5DF2;&#x652F;&#x6301;&#x5355;&#x70B9;&#x6D4B;&#x8BD5;&#xFF0C;&#x4EC5;&#x6D4B;&#x8BD5;js&#x5E94;&#x7528;&#x811A;&#x672C;&#x6B63;&#x786E;&#x6027;&#x3002;</p>
+<ul>
+<li>&#x914D;&#x7F6E;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x5176;&#x4E2D;&#x7684;intent&#x548C;slot&#x662F;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x5728;&#x9ED8;&#x8BA4;&#x7528;&#x4F8B;&#x57FA;&#x7840;&#x4E0A;&#x5BF9;&#x5E94;&#x4E8E;&#x201C;&#x8BED;&#x97F3;&#x4EA4;&#x4E92;&#x201D;&#x4E2D;&#x4F5C;&#x76F8;&#x5E94;&#x8C03;&#x6574;&#x3002;</li>
+<li>&#x8C03;&#x8BD5;&#x7ED3;&#x679C;&#x4E2D;&#x5C06;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4F5C;&#x4E3A;request&#xFF0C;response&#x548C;log&#x65E5;&#x5FD7;&#x5219;&#x662F;&#x6839;&#x636E;&#x5E94;&#x7528;&#x811A;&#x672C;&#x4EA7;&#x51FA;&#x7684;&#x771F;&#x5B9E;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<p>&#x786E;&#x4FDD;js&#x5E94;&#x7528;&#x811A;&#x672C;&#x7684;&#x6B63;&#x786E;&#x6027;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x5728;&#x201C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x201D;&#x9875;&#x4E2D;&#x8FDB;&#x884C;&#x5168;&#x94FE;&#x8DEF;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;</p>
 <h3 id="&#x5173;&#x4E8E;&#x65E5;&#x5FD7;">&#x5173;&#x4E8E;&#x65E5;&#x5FD7;</h3>
 <ul>
 <li>&#x5728;&#x5E94;&#x7528;&#x811A;&#x672C;&#x4E2D;&#x53EF;&#x8C03;&#x7528;console.log( )&#x8F93;&#x51FA;&#x4F60;&#x60F3;&#x8981;&#x770B;&#x7684;&#x65E5;&#x5FD7;&#x3002;</li>
@@ -734,6 +848,10 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
 <h3 id="qa">Q&amp;A</h3>
 <h4 id="q&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x6709;&#x65F6;&#x5019;&#x7ED3;&#x679C;&#x8F93;&#x51FA;&#x7684;&#x4F1A;&#x5305;&#x542B;objectobject&#xFF1F;">Q&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x6709;&#x65F6;&#x5019;&#x7ED3;&#x679C;&#x8F93;&#x51FA;&#x7684;&#x4F1A;&#x5305;&#x542B;[Object,Object]&#xFF1F;</h4>
 <p>A&#xFF1A;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x5728;emit&#x7684;&#x65F6;&#x5019;&#x5199;&#x5165;{tts:xxx}&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;xxx&#x5FC5;&#x987B;&#x4E3A;string&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;object+string&#x5C31;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4EE5;&#x4E0A;&#x73B0;&#x8C61;&#x3002;&#x60F3;&#x8981;&#x8F93;&#x51FA;object&#x7684;&#x5185;&#x5BB9;&#x987B;&#x7528;JSON.stringify()&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A;string&#x3002;</p>
+<h4 id="q&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x7684;&#x811A;&#x672C;&#x4E00;&#x76F4;&#x8D85;&#x65F6;&#xFF1F;">Q&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x7684;&#x811A;&#x672C;&#x4E00;&#x76F4;&#x8D85;&#x65F6;&#xFF1F;</h4>
+<p>A&#xFF1A;1&#x3001;&#x811A;&#x672C;&#x5141;&#x8BB8;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E3A;2s&#xFF0C;&#x5982;&#x5728;2s&#x5185;&#x672A;&#x5B8C;&#x6210;&#x5219;&#x4F1A;&#x8D85;&#x65F6;&#x3002;
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;2&#x3001;&#x9700;&#x8981;&#x5728;emit&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x8C03;&#x7528;callback&#x3002;
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;3&#x3001;&#x5728;&#x8C03;&#x7528;emit&#x53CA;callback&#x65F6;&#x8BF7;&#x6CE8;&#x610F;&#x201C;&#x4E0A;&#x4E0B;&#x6587;this&#x201D;&#x7684;&#x6307;&#x5411;&#x3002;</p>
 
                                 
                                 </section>
@@ -777,7 +895,7 @@ exports.handler = <span class="hljs-function"><span class="hljs-keyword">functio
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互设计指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-06-28T13:01:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-28T13:04:24.340Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid JS Engine 使用指南","level":"4.5","depth":1,"next":{"title":"Rokid语音交互设计指南","level":"4.6","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","ref":"2-RokidDocument/1-SkillsKit/rokid-voice-interaction-guidelines.md","articles":[]},"previous":{"title":"Rokid NLP正则表达式使用指南","level":"4.4","depth":1,"path":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","ref":"2-RokidDocument/1-SkillsKit/rokid-regular-expression.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2-RokidDocument/1-SkillsKit/rokid-js-engine-tutorial.md","mtime":"2017-07-06T12:50:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-06T13:04:02.756Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
