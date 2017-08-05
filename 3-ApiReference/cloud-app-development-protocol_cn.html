@@ -552,7 +552,6 @@
                                 <h2 id="cloud-app-&#x5F00;&#x53D1;&#x534F;&#x8BAE;"><a name="cloud-app-&#x5F00;&#x53D1;&#x534F;&#x8BAE;" class="anchor-navigation-ex-anchor" href="#cloud-app-&#x5F00;&#x53D1;&#x534F;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="cloud-app-&#x5F00;&#x53D1;&#x534F;&#x8BAE;" class="plugin-anchor" href="#cloud-app-&#x5F00;&#x53D1;&#x534F;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a>Cloud App &#x5F00;&#x53D1;&#x534F;&#x8BAE;</h2>
 <h3 id="rokid-&#x5F00;&#x653E;&#x5E73;&#x53F0;"><a name="rokid-&#x5F00;&#x653E;&#x5E73;&#x53F0;" class="anchor-navigation-ex-anchor" href="#rokid-&#x5F00;&#x653E;&#x5E73;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="rokid-&#x5F00;&#x653E;&#x5E73;&#x53F0;" class="plugin-anchor" href="#rokid-&#x5F00;&#x653E;&#x5E73;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>Rokid &#x5F00;&#x653E;&#x5E73;&#x53F0;</h3>
 <p>&#x7248;&#x672C;&#xFF1A;1.0.0-alpha</p>
-<p>[TOC]</p>
 <h3 id="&#x5927;&#x7EB2;"><a name="&#x5927;&#x7EB2;" class="anchor-navigation-ex-anchor" href="#&#x5927;&#x7EB2;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5927;&#x7EB2;" class="plugin-anchor" href="#&#x5927;&#x7EB2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5927;&#x7EB2;</h3>
 <ul>
 <li><a href="#1-&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</a><ul>
@@ -651,7 +650,8 @@
 
         &quot;reqId&quot;: &quot;010116000100-ad1f462f4f0946ccb24e9248362c504a&quot;,
 
-       &quot;content&quot;: {
+    &quot;content&quot;: {
+            &quot;applicationId&quot;: &quot;com.rokid.cloud.music&quot;,
             &quot;intent&quot;: &quot;play_random&quot;,
             &quot;slots&quot;: {
             }
@@ -1079,51 +1079,52 @@
 <h4 id="31-&#x534F;&#x8BAE;&#x6982;&#x89C8;"><a name="31-&#x534F;&#x8BAE;&#x6982;&#x89C8;" class="anchor-navigation-ex-anchor" href="#31-&#x534F;&#x8BAE;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="31-&#x534F;&#x8BAE;&#x6982;&#x89C8;" class="plugin-anchor" href="#31-&#x534F;&#x8BAE;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 &#x534F;&#x8BAE;&#x6982;&#x89C8;</h4>
 <p>&#x6574;&#x4F53;&#x534F;&#x8BAE;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code>{
-  &quot;version&quot;: &quot;2.0.0&quot;,
-  &quot;session&quot;: {
-    &quot;attributes&quot;: {
-      &quot;key1&quot;: &quot;value1&quot;,
-      &quot;key2&quot;: &quot;value2&quot;
-    }
-  },
-  &quot;response&quot;: {
-    &quot;action&quot;: {
-      &quot;version&quot;: &quot;2.0.0&quot;,
-      &quot;type&quot;: &quot;NORMAL / EXIT&quot;,
-      &quot;form&quot;: &quot;scene/cut/service&quot;,
-      &quot;shouldEndSession&quot;: true,
-      &quot;voice&quot;: {
-        &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
-        &quot;item&quot;: {
-          &quot;tts&quot;: &quot;tts content&quot;
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;session&quot;: {
+        &quot;attributes&quot;: {
+            &quot;key1&quot;: &quot;value1&quot;,
+            &quot;key2&quot;: &quot;value2&quot;
         }
-      },
-      &quot;media&quot;: {
-        &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
-        &quot;item&quot;: {
-          &quot;token&quot;: &quot;xxxx&quot;,
-          &quot;type&quot;: &quot;AUDIO/VIDEO&quot;,
-          &quot;url&quot;: &quot;media streaming url&quot;,
-          &quot;offsetInMilliseconds&quot;: 0
-        }
-      },
-      &quot;display&quot;: {
+    },
+    &quot;response&quot;: {
+        &quot;action&quot;: { // for Rokid device
 
-      },
-      &quot;confirm&quot;: {
+            &quot;version&quot;:&quot;2.0.0&quot;,
+
+        &quot;type&quot;: &quot;NORMAL / EXIT&quot;, 
+
+        &quot;form&quot;: &quot;scene/cut/service&quot;,
+
+            &quot;shouldEndSession&quot;: true, 
+
+            &quot;voice&quot;: {
+                &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
+                &quot;item&quot;: {
+                    &quot;tts&quot;: &quot;tts content&quot;
+                }
+            },
+
+            &quot;media&quot;: {
+                &quot;action&quot;: &quot;PLAY/PAUSE/RESUME/STOP&quot;,
+                &quot;item&quot;: {
+                    &quot;token&quot;: &quot;xxxx&quot;,
+                    &quot;type&quot;: &quot;AUDIO/VIDEO&quot;,
+                    &quot;url&quot;: &quot;media streaming url&quot;,
+                    &quot;offsetInMilliseconds&quot;: 0
+                }
+            },
+
+        &quot;display&quot;: {
+            // TBD
+        },
+
+        &quot;confirm&quot;: {
         &quot;confirmIntent&quot;: &quot;nlp intent to confirm&quot;,
         &quot;confirmSlot&quot;: &quot;nlp slot to confirm&quot;,
-        &quot;optionWords&quot;: [
-          &quot;word1&quot;,
-          &quot;word2&quot;
-        ]
-      },
-      &quot;pickup&quot;: {
-        &quot;enable&quot;: true,
-        &quot;durationInMilliseconds&quot;: 1000
-      }
+        &quot;optionWords&quot;: [&quot;word1&quot;,&quot;word2&quot;],
+        }
+        }
     }
-  }
 }
 </code></pre><ul>
 <li><strong>version</strong> - &#x8868;&#x660E;&#x4E86;Response&#x534F;&#x8BAE;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5FC5;&#x987B;&#x7531; <em>CloudApp</em> &#x586B;&#x5145;&#x3002;&#x5F53;&#x524D;&#x534F;&#x8BAE;&#x7248;&#x672C;&#x662F; <code>2.0.0</code>.</li>
@@ -1140,8 +1141,7 @@
     &quot;voice&quot;: {},
     &quot;media&quot;: {},
     &quot;display&quot;: {},
-    &quot;confirm&quot;: {},
-    &quot;pickup&quot;:{}
+    &quot;confirm&quot;: {}
 }
 </code></pre><table>
 <thead>
@@ -1181,11 +1181,6 @@
 <td style="text-align:center">media</td>
 <td style="text-align:center">media object</td>
 <td style="text-align:left"><em>Media&#x5BF9;&#x8C61;</em></td>
-</tr>
-<tr>
-<td style="text-align:center">pickup</td>
-<td style="text-align:center">pickup object</td>
-<td style="text-align:left"><em>Pickup&#x5BF9;&#x8C61;</em></td>
 </tr>
 </tbody>
 </table>
@@ -1326,49 +1321,12 @@
 </tbody>
 </table>
 <ul>
-<li><strong>token</strong> - &#x7528;&#x4E8E;&#x9274;&#x6743;&#x7684;token&#xFF0C;&#x7531;CloudApp&#x586B;&#x5145;&#x548C;&#x5224;&#x65AD;&#xFF0C;&#x4E14;&#x8BE5;Token&#x7684;&#x503C;&#x4F1A;&#x5728;&#x8BE5;Media&#x6267;&#x884C;&#x7684;EventRequest&#x7684;&#x62D3;&#x5C55;&#x4FE1;&#x606F;&#x4E2D;&#x539F;&#x6837;&#x5E26;&#x56DE;&#x3002;</li>
+<li><strong>token</strong> - &#x7528;&#x4E8E;&#x9274;&#x6743;&#x7684;token&#xFF0C;&#x7531;CloudApp&#x586B;&#x5145;&#x548C;&#x5224;&#x65AD;&#x3002;</li>
 <li><strong>type</strong> - &#x8868;&#x660E;&#x4E86;&#x5F53;&#x524D;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#xFF1A;<strong>AUDIO</strong> &#x6216; <strong>VIDEO</strong>&#xFF0C;&#x6709;&#x4E14;&#x53EA;&#x80FD;&#x53D6;&#x5176;&#x4E00;&#x3002;</li>
 <li><strong>url</strong> - &#x4E3A;MediaPlayer&#x6307;&#x660E;&#x53EF;&#x7528;&#x7684;&#x6D41;&#x5A92;&#x4F53;&#x64AD;&#x653E;&#x94FE;&#x63A5;&#x3002;</li>
 <li><strong>offsetInMilliseconds</strong> - &#x6BEB;&#x79D2;&#x6570;&#x503C;&#xFF0C;&#x544A;&#x8BC9;MediaPlayer&#x5F00;&#x59CB;&#x64AD;&#x653E;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x6709;&#x6548;&#x8303;&#x56F4;&#x4ECE;0&#x5230;&#x6B4C;&#x66F2;&#x6574;&#x4F53;&#x64AD;&#x653E;&#x65F6;&#x957F;&#x3002;</li>
 </ul>
-<h5 id="323-pickup"><a name="323-pickup" class="anchor-navigation-ex-anchor" href="#323-pickup"><i class="fa fa-link" aria-hidden="true"></i></a><a name="323-pickup" class="plugin-anchor" href="#323-pickup"><i class="fa fa-link" aria-hidden="true"></i></a>3.2.3 Pickup</h5>
-<p>Pickup &#x7528;&#x6765;&#x63A7;&#x5236;&#x62FE;&#x97F3;&#x72B6;&#x6001;&#xFF08;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x624B;&#x673A;app&#x4E0A;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#xFF09;&#x3002;&#x5F53;CloudApp&#x6CA1;&#x6709;&#x53EF;&#x6267;&#x884C;&#x7684;&#x5185;&#x5BB9;&#x662F;&#xFF0C;&#x4F1A;&#x6267;&#x884C;Pickup&#xFF0C;&#x5982;&#x679C;Pickup&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x6309;&#x7167;Pickup.enable=false&#x6267;&#x884C;&#x3002;</p>
-<pre><code>&quot;pickup&quot;: {
-        &quot;enable&quot;: true,
-        &quot;durationInMilliseconds&quot;: 1000
-}
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:center">&#x5B57;&#x6BB5;</th>
-<th style="text-align:center">&#x7C7B;&#x578B;</th>
-<th style="text-align:left">&#x53EF;&#x80FD;&#x503C;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">enable</td>
-<td style="text-align:center">boolean</td>
-<td style="text-align:left"><em>true / false</em></td>
-</tr>
-<tr>
-<td style="text-align:center">durationInMilliseconds</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left"><em>&#x5728;&#x6CA1;&#x6709;&#x7528;&#x6237;&#x8BF4;&#x8BDD;&#x65F6;&#x62FE;&#x97F3;&#x72B6;&#x6001;&#x6301;&#x7EED;&#x591A;&#x4E45;&#xFF0C;&#x5355;&#x4F4D;&#x6BEB;&#x79D2;</em></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p><strong>enable</strong> - &#x5B9A;&#x4E49;&#x4E86;&#x5BF9;&#x62FE;&#x97F3;&#x72B6;&#x6001;&#x7684;&#x5F00;&#x5173;&#x64CD;&#x4F5C;&#xFF1A;<strong>true</strong>&#xFF0C;<strong>false</strong> &#xFF0C;&#x5176;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;<strong>true</strong>&#x63A5;&#x53D7;<strong>durationInMilliseconds</strong>&#x6570;&#x636E;&#x3002;</p>
-<ul>
-<li><strong>true</strong>&#xFF1A;&#x5F53;CloudApp&#x6CA1;&#x6709;&#x53EF;&#x6267;&#x884C;&#x7684;&#x5185;&#x5BB9;&#xFF08;<strong>Voice&#x64AD;&#x62A5;</strong>&#xFF0C;<strong>Media&#x64AD;&#x62A5;</strong>&#xFF0C;<strong>EventRequest&#x53D1;&#x9001;</strong>&#xFF09;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x62FE;&#x97F3;&#x6253;&#x5F00;&#x3002;</li>
-<li><strong>false</strong>&#xFF1A;&#x4E0D;&#x6253;&#x5F00;</li>
-</ul>
-</li>
-<li><p><strong>durationInMilliseconds</strong> - &#x5F53;<strong>enable=true</strong>&#x65F6;&#xFF0C;&#x5728;&#x7528;&#x6237;&#x4E0D;&#x8BF4;&#x8BDD;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x62FE;&#x97F3;&#x6253;&#x5F00;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#xFF08;&#x5EFA;&#x8BAE;&#x5728;10s-15s&#x5DE6;&#x53F3;&#x4E3A;&#x5B9C;&#xFF09;&#xFF0C;&#x5355;&#x4F4D;<strong>&#x6BEB;&#x79D2;</strong></p>
 <h6 id="copyright--2017-rokid-corporation-ltd-all-rights-reserved"><a name="copyright--2017-rokid-corporation-ltd-all-rights-reserved" class="anchor-navigation-ex-anchor" href="#copyright--2017-rokid-corporation-ltd-all-rights-reserved"><i class="fa fa-link" aria-hidden="true"></i></a><a name="copyright--2017-rokid-corporation-ltd-all-rights-reserved" class="plugin-anchor" href="#copyright--2017-rokid-corporation-ltd-all-rights-reserved"><i class="fa fa-link" aria-hidden="true"></i></a>Copyright &#xA9; 2017 Rokid Corporation Ltd. All rights reserved.</h6>
-</li>
-</ul>
 
                                 
                                 </section>
@@ -1412,7 +1370,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rokid 技能协议文档","level":"6.1","depth":1,"next":{"title":"拦截器接口文档","level":"6.2","depth":1,"path":"3-ApiReference/rokid-interceptor.md","ref":"3-ApiReference/rokid-interceptor.md","articles":[]},"previous":{"title":"Rokid SDK 接入指南","level":"5.2","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","ref":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchors","anchor-navigation-ex","github"],"pluginsConfig":{"github":{"url":"https://github.com/Rokid"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/cloud-app-development-protocol_cn.md","mtime":"2017-08-04T10:13:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-04T10:14:58.921Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rokid 技能协议文档","level":"6.1","depth":1,"next":{"title":"拦截器接口文档","level":"6.2","depth":1,"path":"3-ApiReference/rokid-interceptor.md","ref":"3-ApiReference/rokid-interceptor.md","articles":[]},"previous":{"title":"Rokid SDK 接入指南","level":"5.2","depth":1,"path":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","ref":"2-RokidDocument/2-EnableVoice/rokid-sdk-tutorial.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchors","anchor-navigation-ex","github"],"pluginsConfig":{"github":{"url":"https://github.com/Rokid"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3-ApiReference/cloud-app-development-protocol_cn.md","mtime":"2017-08-05T10:08:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-05T10:24:07.519Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
